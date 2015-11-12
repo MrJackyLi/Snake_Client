@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.CardLayout;
 
 /**
  * Created by Jacky on 12/11/15.
@@ -41,6 +42,7 @@ public class Screen extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
+        contentPane.setLayout(new CardLayout(0, 0));
     }
 
 }

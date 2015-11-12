@@ -25,12 +25,12 @@ public class Login extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel screenLabel = new JLabel("SNAKE GAME");
-        screenLabel.setBounds(234, 37, 177, 41);
-        screenLabel.setForeground(Color.BLACK);
-        screenLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-        screenLabel.setBackground(Color.BLACK);
-        add(screenLabel);
+        JLabel loginLabel = new JLabel("SNAKE GAME");
+        loginLabel.setBounds(234, 37, 177, 41);
+        loginLabel.setForeground(Color.BLACK);
+        loginLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+        loginLabel.setBackground(Color.BLACK);
+        add(loginLabel);
 
         txtUsername = new JTextField();
         txtUsername.setText("Type Username");
