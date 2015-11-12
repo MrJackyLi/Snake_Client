@@ -26,7 +26,7 @@ public class Login extends JPanel {
         setLayout(null);
 
         JLabel loginLabel = new JLabel("SNAKE GAME");
-        loginLabel.setBounds(234, 37, 177, 41);
+        loginLabel.setBounds(245, 37, 177, 41);
         loginLabel.setForeground(Color.BLACK);
         loginLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
         loginLabel.setBackground(Color.BLACK);
@@ -34,14 +34,14 @@ public class Login extends JPanel {
 
         txtUsername = new JTextField();
         txtUsername.setText("Type Username");
-        txtUsername.setBounds(234, 153, 177, 48);
+        txtUsername.setBounds(245, 153, 177, 48);
         add(txtUsername);
         txtUsername.setColumns(10);
 
         txtTypePassword = new JTextField();
         txtTypePassword.setText("Type Password");
         txtTypePassword.setColumns(10);
-        txtTypePassword.setBounds(234, 226, 177, 48);
+        txtTypePassword.setBounds(245, 226, 177, 48);
         add(txtTypePassword);
 
         JButton btnLogin = new JButton("Login");
@@ -49,7 +49,7 @@ public class Login extends JPanel {
             public void actionPerformed(ActionEvent e) {
             }
         });
-        btnLogin.setBounds(249, 306, 147, 41);
+        btnLogin.setBounds(260, 306, 147, 41);
         add(btnLogin);
 
 
