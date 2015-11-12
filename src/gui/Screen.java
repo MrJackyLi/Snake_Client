@@ -15,7 +15,8 @@ public class Screen extends JFrame {
 
     private JPanel contentPane;
     private Login login;
-
+    private Menu menu;
+    
     /**
      * Launch the application.
      */
