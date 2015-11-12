@@ -12,14 +12,14 @@ import java.awt.event.ActionEvent;
 /**
  * Created by Jacky on 12/11/15.
  */
-public class Welcome extends JPanel {
+public class Login extends JPanel {
     private JTextField txtUsername;
     private JTextField txtTypePassword;
 
     /**
      * Create the panel.
      */
-    public Welcome() {
+    public Login() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
         setLayout(null);
