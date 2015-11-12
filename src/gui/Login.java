@@ -22,6 +22,7 @@ public class Login extends JPanel {
     public Login() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
+        setBounds(100, 100, 668, 395);
         setLayout(null);
 
         JLabel screenLabel = new JLabel("SNAKE GAME");
