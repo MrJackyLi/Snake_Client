@@ -18,6 +18,7 @@ public class Screen extends JFrame {
     private Menu menu;
     private CreateGame creategame;
     private DeleteGame deletegame;
+    private Highscore highscore;
 
 
     /**
