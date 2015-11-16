@@ -17,6 +17,8 @@ public class Screen extends JFrame {
     private Login login;
     private Menu menu;
     private CreateGame creategame;
+    private DeleteGame deletegame;
+
 
     /**
      * Launch the application.
