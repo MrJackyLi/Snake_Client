@@ -5,6 +5,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * Created by Jacky on 12/11/15.
@@ -30,31 +32,55 @@ public class Menu extends JPanel {
         add(lblHiWelcome);
 
         JButton btnStartGame = new JButton("Start Game");
+        btnStartGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnStartGame.setForeground(Color.BLACK);
         btnStartGame.setBounds(53, 128, 243, 70);
         add(btnStartGame);
 
         JButton btnCreateGame = new JButton("CreateGame");
+        btnCreateGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnCreateGame.setForeground(Color.BLACK);
         btnCreateGame.setBounds(53, 213, 243, 70);
         add(btnCreateGame);
 
         JButton btnDeleteGame = new JButton("Delete Game");
+        btnDeleteGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnDeleteGame.setForeground(Color.BLACK);
         btnDeleteGame.setBounds(53, 299, 243, 70);
         add(btnDeleteGame);
 
         JButton btnGetHighscore = new JButton("Get Highscore");
+        btnGetHighscore.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnGetHighscore.setForeground(Color.BLACK);
         btnGetHighscore.setBounds(376, 128, 243, 70);
         add(btnGetHighscore);
 
         JButton btnGetResults = new JButton("Get Results");
+        btnGetResults.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnGetResults.setForeground(Color.BLACK);
         btnGetResults.setBounds(376, 213, 243, 70);
         add(btnGetResults);
 
         JButton btnLogOut = new JButton("Log Out");
+        btnLogOut.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         btnLogOut.setForeground(Color.BLACK);
         btnLogOut.setBounds(376, 299, 243, 70);
         add(btnLogOut);
