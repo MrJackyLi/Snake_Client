@@ -7,13 +7,11 @@ package sdk;
 
 import com.google.gson.Gson;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Logic {
 
-        public void run(){
-        screen.getM
-    }
 
         public static void login(String username, String password){
 
@@ -64,6 +62,29 @@ public class Logic {
         public static void deleteGame(int gameId){
 
         }
+
+    private boolean isEmpty(String text){
+        //trim sørger for at der ikke er tomme spaces
+        text = text.trim();
+
+        if (text.equals("") || text.length() < 1 || text == null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private class LoginActionListener implements ActionListener{
+
+        public void actionPerformed(ActionEvent e){
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Login")) {
+
+                String
+            }
+        }
+
+    }
 
     private class MenuActionListener implements ActionListener{
 

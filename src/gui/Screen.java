@@ -6,8 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Jacky on 12/11/15.
@@ -65,28 +63,6 @@ public class Screen extends JFrame {
         c.show(contentPane, panel);
     }
 
-    private boolean isEmpty(String text){
-        //trim sørger for at der ikke er tomme spaces
-        text = text.trim();
-
-        if (text.equals("") || text.length() < 1 || text == null){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private class LoginActionListener implements ActionListener{
-
-        public void actionPerformed(ActionEvent e){
-            String actCom = e.getActionCommand();
-            if (actCom.equals("Login")) {
-
-            }
-        }
-
-
-    }
 
     public Login getLogin(){
         return login;
