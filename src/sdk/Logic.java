@@ -6,14 +6,29 @@
 package sdk;
 
 import com.google.gson.Gson;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import gui.Screen;
 
 public class Logic {
 
+    private Screen screen;
 
-        public static void login(String username, String password){
+    public Logic(){
+        screen = new Screen();
+    }
+
+        public void run(){
+            screen.getLogin().actionPerformedLogin(
+                    new LoginActionListener());
+            screen.getMenu().addACList(
+                    new MenuActionListener());
+
+            screen.show(screen.LOGIN);
+        }
+
+
+        /*public static void login(String username, String password){
 
             ServerConnection serverConnection = new ServerConnection();
 
@@ -26,8 +41,8 @@ public class Logic {
             serverConnection.post(json, "login/");
 
 
-        }
-        public static void createUser(User user){
+        }*/
+        /*public static void createUser(User user){
 
         }
         public static void deleteUser(int userId){
@@ -62,6 +77,7 @@ public class Logic {
         public static void deleteGame(int gameId){
 
         }
+*/
 
     private boolean isEmpty(String text){
         //trim sørger for at der ikke er tomme spaces
@@ -80,15 +96,27 @@ public class Logic {
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
 
-                String
+                String usernameField = screen.getLogin().getTxtUsername().getText();
+                String passwordField = screen.getLogin().getTxtTypePassword().getText();
+                screen.getLogin().getTxtUsername().setText("");
+                screen.getLogin().getTxtTypePassword().setText("");
+                    //Checks if username and pass field is filled
+                if (isEmpty(usernameField) || isEmpty(passwordField)) {
+                    //Errormsg in label in window
+                    screen.getLogin().setErrorMessage("Please type username and password");
+                } else {
+                    screen.getLogin().setErrorMessage("Wrong username or password");
+                    //Checking login
+                } else if{
+                    screen.show.(Screen.MENU);
+
+                }
+
             }
         }
 
     }
 
-    private class MenuActionListener implements ActionListener{
-
     }
 
 
-    }

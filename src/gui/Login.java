@@ -9,12 +9,15 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 /**
  * Created by Jacky on 12/11/15.
  */
 public class Login extends JPanel {
     private JTextField txtUsername;
     private JTextField txtTypePassword;
+    private JLabel errorMessage;
+    private JButton btnLogin;
 
     /**
      * Create the panel.
@@ -44,14 +47,40 @@ public class Login extends JPanel {
         txtTypePassword.setBounds(245, 226, 177, 48);
         add(txtTypePassword);
 
-        JButton btnLogin = new JButton("Login");
+        JLabel ErrorMessage = new JLabel("");
+        ErrorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        ErrorMessage.setBounds(175, 90, 318, 51);
+        add(ErrorMessage);
+
+        btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
         });
+
+        JButton btnLogin = new JButton("Login");
         btnLogin.setBounds(260, 306, 147, 41);
+        btnLogin.setActionCommand("Login");
         add(btnLogin);
+    }
 
+    public JTextField getTxtUsername() {
+        return txtUsername;
+    }
 
+    public JTextField getTxtTypePassword() {
+        return txtTypePassword;
+    }
+
+    public void setErrorMessage(String errorMessage){
+        this.errorMessage.setText(errorMessage);
+    }
+
+    public JLabel getErrorMessage(){
+        return errorMessage;
+    }
+
+    public void actionPerformedLogin(ActionListener l) {
+        btnLogin.addActionListener(l);
     }
 }

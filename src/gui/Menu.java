@@ -14,6 +14,14 @@ import java.awt.event.ActionEvent;
 
 public class Menu extends JPanel {
 
+    private JButton btnStartGame;
+    private JButton btnCreateGame;
+    private JButton btnDeleteGame;
+    private JButton btnGetHighscore;
+    private JButton btnGetResults;
+    private JButton btnLogOut;
+
+
     public Menu() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
@@ -37,7 +45,7 @@ public class Menu extends JPanel {
         lblHiWelcome.setBounds(213, 100, 250, 16);
         add(lblHiWelcome);
 
-        JButton btnStartGame = new JButton("Start Game");
+        btnStartGame = new JButton("Start Game");
         btnStartGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -46,7 +54,7 @@ public class Menu extends JPanel {
         btnStartGame.setBounds(53, 128, 243, 70);
         add(btnStartGame);
 
-        JButton btnCreateGame = new JButton("CreateGame");
+        btnCreateGame = new JButton("CreateGame");
         btnCreateGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -55,7 +63,7 @@ public class Menu extends JPanel {
         btnCreateGame.setBounds(53, 213, 243, 70);
         add(btnCreateGame);
 
-        JButton btnDeleteGame = new JButton("Delete Game");
+        btnDeleteGame = new JButton("Delete Game");
         btnDeleteGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -64,7 +72,7 @@ public class Menu extends JPanel {
         btnDeleteGame.setBounds(53, 299, 243, 70);
         add(btnDeleteGame);
 
-        JButton btnGetHighscore = new JButton("Get Highscore");
+        btnGetHighscore = new JButton("Get Highscore");
         btnGetHighscore.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -73,7 +81,7 @@ public class Menu extends JPanel {
         btnGetHighscore.setBounds(376, 128, 243, 70);
         add(btnGetHighscore);
 
-        JButton btnGetResults = new JButton("Get Results");
+        btnGetResults = new JButton("Get Results");
         btnGetResults.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -82,7 +90,7 @@ public class Menu extends JPanel {
         btnGetResults.setBounds(376, 213, 243, 70);
         add(btnGetResults);
 
-        JButton btnLogOut = new JButton("Log Out");
+        btnLogOut = new JButton("Log Out");
         btnLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -92,4 +100,14 @@ public class Menu extends JPanel {
         add(btnLogOut);
 
     }
+
+    public void addACList(ActionListener ac){
+        btnStartGame.addActionListener(ac);
+        btnCreateGame.addActionListener(ac);
+        btnDeleteGame.addActionListener(ac);
+        btnGetHighscore.addActionListener(ac);
+        btnGetResults.addActionListener(ac);
+        btnLogOut.addActionListener(ac);
     }
+
+}

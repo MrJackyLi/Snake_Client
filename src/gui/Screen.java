@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 public class Screen extends JFrame {
 
     public static final String LOGIN = "Login";
+    public static final String MENU = "Menu";
 
     private JPanel contentPane;
     private Login login;
@@ -63,9 +64,13 @@ public class Screen extends JFrame {
         c.show(contentPane, panel);
     }
 
-
     public Login getLogin(){
         return login;
     }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
 
 }
