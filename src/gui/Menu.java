@@ -20,6 +20,12 @@ public class Menu extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
+        JLabel lblSnake = new JLabel("SNAKE");
+        lblSnake.setForeground(Color.BLACK);
+        lblSnake.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
+        lblSnake.setBounds(292, 27, 84, 36);
+        add(lblSnake);
+
         JLabel menuLabel = new JLabel("MENU");
         menuLabel.setForeground(Color.BLACK);
         menuLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
@@ -84,12 +90,6 @@ public class Menu extends JPanel {
         btnLogOut.setForeground(Color.BLACK);
         btnLogOut.setBounds(376, 299, 243, 70);
         add(btnLogOut);
-
-        JLabel lblSnake = new JLabel("SNAKE");
-        lblSnake.setForeground(Color.BLACK);
-        lblSnake.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblSnake.setBounds(292, 27, 84, 36);
-        add(lblSnake);
 
     }
     }
