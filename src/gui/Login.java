@@ -47,17 +47,17 @@ public class Login extends JPanel {
         txtTypePassword.setBounds(245, 226, 177, 48);
         add(txtTypePassword);
 
-        JLabel ErrorMessage = new JLabel("");
-        ErrorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-        ErrorMessage.setBounds(175, 90, 318, 51);
-        add(ErrorMessage);
+        errorMessage = new JLabel("");
+        errorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        errorMessage.setBounds(175, 90, 318, 51);
+        add(errorMessage);
 
         btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
         });
-        
+
         btnLogin.setBounds(260, 306, 147, 41);
         btnLogin.setActionCommand("Login");
         add(btnLogin);
