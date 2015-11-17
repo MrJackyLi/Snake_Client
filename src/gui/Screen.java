@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 
+import gui.Login;
+
 /**
  * Created by Jacky on 12/11/15.
  */
@@ -23,6 +25,7 @@ public class Screen extends JFrame {
     private Highscore highscore;
     private Result result;
     private StartGame startgame;
+
 
     private CardLayout c;
 

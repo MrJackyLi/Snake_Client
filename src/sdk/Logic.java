@@ -16,6 +16,7 @@ public class Logic {
 
     public Logic(){
         screen = new Screen();
+        screen.setVisible(true);
     }
 
         public void run(){
@@ -107,8 +108,10 @@ public class Logic {
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
                     //Checking login
-                } else if{
-                    screen.show.(Screen.MENU);
+                    if (null)
+                        screen.show.(screen.MENU);
+                }
+
 
                 }
 
