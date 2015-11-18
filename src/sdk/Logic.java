@@ -96,8 +96,9 @@ public class Logic {
         public void actionPerformed(ActionEvent e){
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
+                screen.show(screen.MENU);
 
-                String usernameField = screen.getLogin().getTxtUsername().getText();
+                /*String usernameField = screen.getLogin().getTxtUsername().getText();
                 String passwordField = screen.getLogin().getTxtTypePassword().getText();
                 screen.getLogin().getTxtUsername().setText("");
                 screen.getLogin().getTxtTypePassword().setText("");
@@ -111,7 +112,7 @@ public class Logic {
                     if (null)
                         screen.show.(screen.MENU);
                 }
-
+*/
 
                 }
 
