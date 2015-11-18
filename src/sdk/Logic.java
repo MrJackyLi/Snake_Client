@@ -94,8 +94,8 @@ public class Logic {
     private class LoginActionListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
-            String actCom = e.getActionCommand();
-            if (actCom.equals("Login")) {
+         //   String actCom = e.getActionCommand();
+         //   if (actCom.equals("Login")) {
                 screen.show(screen.MENU);
 
                 /*String usernameField = screen.getLogin().getTxtUsername().getText();
@@ -119,8 +119,8 @@ public class Logic {
             }
         }
 
-    }
+    
 
-    }
+
 
 
