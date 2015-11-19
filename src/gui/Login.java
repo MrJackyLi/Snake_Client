@@ -79,7 +79,12 @@ public class Login extends JPanel {
         return errorMessage;
     }
 
-    public void actionPerformedLogin(ActionListener l) {
+    public JButton getBtnLogin()
+    {
+        return btnLogin;
+    }
+
+    public void addActionListener(ActionListener l) {
         btnLogin.addActionListener(l);
     }
 }

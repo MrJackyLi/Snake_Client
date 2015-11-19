@@ -20,14 +20,14 @@ public class Logic {
     }
 
         public void run(){
-            screen.getLogin().actionPerformedLogin(
+            screen.getLogin().addActionListener(
                     new LoginActionListener());
             //screen.getMenu().addACList(
                    // new MenuActionListener());
             screen.show(Screen.LOGIN);
         }
 
-    private boolean isEmpty(String text){
+   /* private boolean isEmpty(String text){
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
 
@@ -36,12 +36,13 @@ public class Logic {
         } else {
             return false;
         }
-    }
+    }*/
 
     private class LoginActionListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
 
+            if(e.getSource() == screen.getLogin().getBtnLogin())
                 screen.show(Screen.MENU);
 
                 }

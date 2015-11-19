@@ -37,11 +37,11 @@ public class ServerConnection {
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").get()
+        //ClientResponse response = webResource.type("application/json").get()
 
 
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+        //String output = response.getEntity(String.class);
+       // System.out.println(output);
 
 
     }
