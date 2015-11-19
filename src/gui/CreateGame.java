@@ -31,12 +31,13 @@ public class CreateGame extends JPanel {
         add(lblCreateGame);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnBack.setBounds(260, 306, 147, 41);
+        btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
+    }
+
+    public void actionPerformedBack(ActionListener back) {
+        btnBack.addActionListener(back);
     }
 
 }

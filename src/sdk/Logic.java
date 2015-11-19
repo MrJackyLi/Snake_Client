@@ -26,6 +26,7 @@ public class Logic {
                     new MenuActionListener());
             screen.getStartGame().actionPerformedBack(
                     new StartActionListenerBack());
+            screen.get
             screen.show(Screen.LOGIN);
         }
 
@@ -57,6 +58,9 @@ public class Logic {
             if(actCom.equals("Start Game")){
                 screen.show(Screen.STARTGAME);
             }
+            else if(actCom.equals("Create Game")){
+                screen.show(Screen.CREATEGAME);
+            }
         }
     }
 
@@ -67,7 +71,12 @@ public class Logic {
         }
     }
 
+    private class CreateActionListenerBack implements ActionListener{
 
+        public void actionPerformed(ActionEvent back){
+            screen.show((Screen.MENU));
+        }
+    }
 }
 
 
