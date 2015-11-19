@@ -28,7 +28,10 @@ public class Logic {
                     new StartActionListenerBack());
             screen.getCreateGame().actionPerformedBack(
                     new CreateActionListenerBack());
-
+            screen.getDeleteGame().actionPerformedBack(
+                    new DeleteActionListenerBack());
+            screen.getHighscore().actionPerformedBack(
+                    new HighscoreActionListenerBack());
             screen.show(Screen.LOGIN);
         }
 
@@ -63,6 +66,18 @@ public class Logic {
             else if(actCom.equals("Create Game")){
                 screen.show(Screen.CREATEGAME);
             }
+            else if(actCom.equals("Delete Game")){
+                screen.show(Screen.DELETEGAME);
+            }
+            else if(actCom.equals("Highscore")){
+                screen.show(Screen.HIGHSCORE);
+            }
+            else if(actCom.equals("Result")){
+                screen.show(Screen.RESULT);
+            }
+            else if(actCom.equals("Log out")){
+                screen.show(Screen.LOGIN);
+            }
         }
     }
 
@@ -76,9 +91,24 @@ public class Logic {
     private class CreateActionListenerBack implements ActionListener{
 
         public void actionPerformed(ActionEvent back){
-            screen.show((Screen.MENU));
+            screen.show(Screen.MENU);
         }
     }
+
+    private class DeleteActionListenerBack implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            screen.show(Screen.MENU);
+        }
+    }
+
+    private class HighscoreActionListenerBack implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            screen.show(Screen.MENU);
+        }
+    }
+
 }
 
 

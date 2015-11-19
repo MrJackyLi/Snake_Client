@@ -30,12 +30,13 @@ public class DeleteGame extends JPanel {
         add(lblDeleteGame);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnBack.setBounds(260, 306, 147, 41);
         add(btnBack);
+        btnBack.setActionCommand("BACK TO MENU");
+    }
+
+    public void actionPerformedBack(ActionListener back) {
+        btnBack.addActionListener(back);
     }
 
 }
