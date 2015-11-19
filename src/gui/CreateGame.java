@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
  */
 
 public class CreateGame extends JPanel {
+    private JLabel lblCreateGame;
+    private JButton btnBack;
 
     /**
      * Create the panel.
@@ -23,12 +25,12 @@ public class CreateGame extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblCreateGame = new JLabel("CREATE GAME");
+        lblCreateGame = new JLabel("CREATE GAME");
         lblCreateGame.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblCreateGame.setBounds(241, 55, 186, 41);
         add(lblCreateGame);
 
-        JButton btnBack = new JButton("BACK TO MENU");
+        btnBack = new JButton("BACK TO MENU");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
