@@ -32,6 +32,9 @@ public class Logic {
                     new DeleteActionListenerBack());
             screen.getHighscore().actionPerformedBack(
                     new HighscoreActionListenerBack());
+            screen.getResult().actionPerformedBack(
+                    new ResultActionListenerBack);
+
             screen.show(Screen.LOGIN);
         }
 
@@ -103,6 +106,13 @@ public class Logic {
     }
 
     private class HighscoreActionListenerBack implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            screen.show(Screen.MENU);
+        }
+    }
+
+    private class ResultActionListenerBack implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             screen.show(Screen.MENU);
