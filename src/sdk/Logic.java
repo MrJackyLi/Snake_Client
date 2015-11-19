@@ -75,7 +75,7 @@ public class Logic {
             else if(actCom.equals("Result")){
                 screen.show(Screen.RESULT);
             }
-            else if(actCom.equals("Log out")){
+            else{
                 screen.show(Screen.LOGIN);
             }
         }
