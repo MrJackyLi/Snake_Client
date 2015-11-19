@@ -33,7 +33,7 @@ public class Logic {
             screen.getHighscore().actionPerformedBack(
                     new HighscoreActionListenerBack());
             screen.getResult().actionPerformedBack(
-                    new ResultActionListenerBack);
+                    new ResultActionListenerBack));
 
             screen.show(Screen.LOGIN);
         }
