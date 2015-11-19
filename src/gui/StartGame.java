@@ -13,6 +13,8 @@ import javax.swing.JPanel;
  */
 public class StartGame extends JPanel {
 
+    private JLabel lblStart;
+    private JButton btnBack;
     /**
      * Create the panel.
      */
@@ -22,12 +24,12 @@ public class StartGame extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblStart = new JLabel("START GAME");
+        lblStart = new JLabel("START GAME");
         lblStart.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblStart.setBounds(250, 16, 167, 41);
         add(lblStart);
 
-        JButton btnBack = new JButton("BACK TO MENU");
+        btnBack = new JButton("BACK TO MENU");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }

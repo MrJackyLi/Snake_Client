@@ -16,6 +16,7 @@ public class Screen extends JFrame {
 
     public static final String LOGIN = "Login";
     public static final String MENU = "Menu";
+    public static final String STARTGAME = "Start Game";
 
     private JPanel contentPane;
     private Login login;
@@ -47,6 +48,9 @@ public class Screen extends JFrame {
         menu = new Menu();
             contentPane.add(menu, MENU);
 
+        startgame = new StartGame();
+            contentPane.add(startgame, STARTGAME);
+
         c = (CardLayout) getContentPane().getLayout();
     }
 
@@ -62,5 +66,7 @@ public class Screen extends JFrame {
         return menu;
     }
 
-
+    public StartGame getStartgame() {
+        return startgame;
+    }
 }

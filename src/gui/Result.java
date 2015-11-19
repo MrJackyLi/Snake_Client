@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 
 public class Result extends JPanel {
 
+    private JLabel lblResult;
+    private JButton btnBack;
     /**
      * Create the panel.
      */
@@ -22,12 +24,12 @@ public class Result extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblResult = new JLabel("RESULT");
+        lblResult = new JLabel("RESULT");
         lblResult.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblResult.setBounds(282, 55, 103, 41);
         add(lblResult);
 
-        JButton btnBack = new JButton("BACK TO MENU");
+        btnBack = new JButton("BACK TO MENU");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
