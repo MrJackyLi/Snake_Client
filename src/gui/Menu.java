@@ -54,49 +54,35 @@ public class Menu extends JPanel {
         btnStartGame.setActionCommand("Start Game");
         add(btnStartGame);
 
-        btnCreateGame = new JButton("CreateGame");
-        btnCreateGame.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
+        btnCreateGame = new JButton("Create Game");
+
         btnCreateGame.setForeground(Color.BLACK);
         btnCreateGame.setBounds(53, 213, 243, 70);
+        btnCreateGame.setActionCommand("Create Game");
         add(btnCreateGame);
 
         btnDeleteGame = new JButton("Delete Game");
-        btnDeleteGame.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnDeleteGame.setForeground(Color.BLACK);
         btnDeleteGame.setBounds(53, 299, 243, 70);
+        btnDeleteGame.setActionCommand("Delete Game");
         add(btnDeleteGame);
 
         btnGetHighscore = new JButton("Get Highscore");
-        btnGetHighscore.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnGetHighscore.setForeground(Color.BLACK);
         btnGetHighscore.setBounds(376, 128, 243, 70);
+        btnGetHighscore.setActionCommand("Get Highscore");
         add(btnGetHighscore);
 
         btnGetResults = new JButton("Get Results");
-        btnGetResults.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnGetResults.setForeground(Color.BLACK);
         btnGetResults.setBounds(376, 213, 243, 70);
+        btnGetResults.setActionCommand("Get Results");
         add(btnGetResults);
 
         btnLogOut = new JButton("Log Out");
-        btnLogOut.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnLogOut.setForeground(Color.BLACK);
         btnLogOut.setBounds(376, 299, 243, 70);
+        btnLogOut.setActionCommand("Log Out");
         add(btnLogOut);
 
     }
