@@ -25,7 +25,6 @@ public class Menu extends JPanel {
     private JLabel lblHiWelcome;
 
 
-
     public Menu() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
@@ -50,12 +49,9 @@ public class Menu extends JPanel {
         add(lblHiWelcome);
 
         btnStartGame = new JButton("Start Game");
-        btnStartGame.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         btnStartGame.setForeground(Color.BLACK);
         btnStartGame.setBounds(53, 128, 243, 70);
+        btnStartGame.setActionCommand("Start Game");
         add(btnStartGame);
 
         btnCreateGame = new JButton("CreateGame");
