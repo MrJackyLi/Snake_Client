@@ -25,7 +25,7 @@ public class Highscore extends JPanel {
 
         lblHighscore = new JLabel("HIGHSCORE");
         lblHighscore.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblHighscore.setBounds(268, 55, 131, 41);
+        lblHighscore.setBounds(255, 55, 158, 41);
         add(lblHighscore);
 
         btnBack = new JButton("BACK TO MENU");
