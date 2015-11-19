@@ -26,7 +26,9 @@ public class Logic {
                     new MenuActionListener());
             screen.getStartGame().actionPerformedBack(
                     new StartActionListenerBack());
-            screen.get
+            screen.getCreateGame().actionPerformedBack(
+                    new CreateActionListenerBack());
+
             screen.show(Screen.LOGIN);
         }
 
