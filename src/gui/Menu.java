@@ -1,5 +1,7 @@
 package gui;
 
+import sdk.Logic;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -55,7 +57,6 @@ public class Menu extends JPanel {
         add(btnStartGame);
 
         btnCreateGame = new JButton("Create Game");
-
         btnCreateGame.setForeground(Color.BLACK);
         btnCreateGame.setBounds(53, 213, 243, 70);
         btnCreateGame.setActionCommand("Create Game");

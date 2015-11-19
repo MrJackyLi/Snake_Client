@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 
 import gui.Login;
 
+
 /**
  * Created by Jacky on 12/11/15.
  */
@@ -16,16 +17,17 @@ public class Screen extends JFrame {
 
     public static final String LOGIN = "Login";
     public static final String MENU = "Menu";
-    public static final String STARTGAME = "Start Game";
+    public static final String STARTGAME = "StartGame";
 
     private JPanel contentPane;
     private Login login;
     private Menu menu;
+    private StartGame startgame;
     private CreateGame creategame;
     private DeleteGame deletegame;
     private Highscore highscore;
     private Result result;
-    private StartGame startgame;
+
 
 
     private CardLayout c;
@@ -66,7 +68,7 @@ public class Screen extends JFrame {
         return menu;
     }
 
-    public StartGame getStartgame() {
+    public StartGame getStartGame() {
         return startgame;
     }
 }

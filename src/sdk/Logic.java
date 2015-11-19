@@ -8,7 +8,7 @@ package sdk;
 import com.google.gson.Gson;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import gui.Screen;
+import gui.*;
 
 public class Logic {
 
@@ -22,8 +22,8 @@ public class Logic {
         public void run(){
             screen.getLogin().addActionListener(
                     new LoginActionListener());
-            //screen.getMenu().addACList(
-              //     new MenuActionListener());
+            screen.getMenu().addACList(
+                    new MenuActionListener());
             screen.show(Screen.LOGIN);
         }
 
@@ -38,19 +38,27 @@ public class Logic {
         }
     }*/
 
-    private class LoginActionListener implements ActionListener{
+    private class LoginActionListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Login")) {
+                screen.show(Screen.MENU);
+            }
+        }
+    }
+
+    private class MenuActionListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
             String actCom = e.getActionCommand();
-            if(actCom.equals("Login"))
-                screen.show(Screen.MENU);
-                }
+            if(actCom.equals("Start Game")){
+                screen.show(Screen.STARTGAME);
             }
-
-    /*private class MenuActionListener imlpements ActionListener{
-
-    } */
         }
+    }
+
+}
 
 
 
