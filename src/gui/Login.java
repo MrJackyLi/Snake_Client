@@ -54,11 +54,6 @@ public class Login extends JPanel {
         add(errorMessage);
 
         btnLogin = new JButton("Login");
-        btnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-
         btnLogin.setBounds(260, 306, 147, 41);
         btnLogin.setActionCommand("Login");
         add(btnLogin);

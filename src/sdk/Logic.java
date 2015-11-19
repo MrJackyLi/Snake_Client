@@ -24,6 +24,8 @@ public class Logic {
                     new LoginActionListener());
             screen.getMenu().addACList(
                     new MenuActionListener());
+            screen.getStartGame().actionPerformedBack(
+                    new StartActionListenerBack());
             screen.show(Screen.LOGIN);
         }
 
@@ -57,6 +59,14 @@ public class Logic {
             }
         }
     }
+
+    private class StartActionListenerBack implements ActionListener{
+
+        public void actionPerformed(ActionEvent back){
+            screen.show(Screen.MENU);
+        }
+    }
+
 
 }
 
