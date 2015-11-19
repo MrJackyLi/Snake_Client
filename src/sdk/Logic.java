@@ -23,7 +23,7 @@ public class Logic {
             screen.getLogin().addActionListener(
                     new LoginActionListener());
             //screen.getMenu().addACList(
-                   // new MenuActionListener());
+              //     new MenuActionListener());
             screen.show(Screen.LOGIN);
         }
 
@@ -41,13 +41,15 @@ public class Logic {
     private class LoginActionListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
-
-            if(e.getSource() == screen.getLogin().getBtnLogin())
+            String actCom = e.getActionCommand();
+            if(actCom.equals("Login"))
                 screen.show(Screen.MENU);
-
                 }
-
             }
+
+    /*private class MenuActionListener imlpements ActionListener{
+
+    } */
         }
 
 
