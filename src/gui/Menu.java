@@ -71,13 +71,13 @@ public class Menu extends JPanel {
         btnGetHighscore = new JButton("Get Highscore");
         btnGetHighscore.setForeground(Color.BLACK);
         btnGetHighscore.setBounds(376, 128, 243, 70);
-        btnGetHighscore.setActionCommand("Get Highscore");
+        btnGetHighscore.setActionCommand("Highscore");
         add(btnGetHighscore);
 
         btnGetResults = new JButton("Get Results");
         btnGetResults.setForeground(Color.BLACK);
         btnGetResults.setBounds(376, 213, 243, 70);
-        btnGetResults.setActionCommand("Get Results");
+        btnGetResults.setActionCommand("Result");
         add(btnGetResults);
 
         btnLogOut = new JButton("Log Out");

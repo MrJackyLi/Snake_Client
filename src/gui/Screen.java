@@ -20,7 +20,7 @@ public class Screen extends JFrame {
     public static final String STARTGAME = "Start Game";
     public static final String CREATEGAME = "Create Game";
     public static final String DELETEGAME = "Delete Game";
-    public static final String HIGHSCORE = "High Score";
+    public static final String HIGHSCORE = "HighScore";
     public static final String RESULT = "Result";
 
     private JPanel contentPane;
