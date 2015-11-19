@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
  */
 public class DeleteGame extends JPanel {
 
+    private JLabel lblDeleteGame;
+    private JButton btnBack;
     /**
      * Create the panel
      */
@@ -22,12 +24,12 @@ public class DeleteGame extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblDeleteGame = new JLabel("DELETE GAME");
+        lblDeleteGame = new JLabel("DELETE GAME");
         lblDeleteGame.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblDeleteGame.setBounds(243, 55, 182, 41);
         add(lblDeleteGame);
 
-        JButton btnBack = new JButton("BACK TO MENU");
+        btnBack = new JButton("BACK TO MENU");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }

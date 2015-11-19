@@ -12,7 +12,8 @@ import java.awt.event.ActionEvent;
  * Created by Jacky on 16/11/15.
  */
 public class Highscore extends JPanel {
-
+    private JLabel lblHighscore;
+    private JButton btnBack;
     /**
      * Create the panel.
      */
@@ -22,12 +23,12 @@ public class Highscore extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblHighscore = new JLabel("HIGHSCORE");
+        lblHighscore = new JLabel("HIGHSCORE");
         lblHighscore.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblHighscore.setBounds(268, 55, 131, 41);
         add(lblHighscore);
 
-        JButton btnBack = new JButton("BACK TO MENU");
+        btnBack = new JButton("BACK TO MENU");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
