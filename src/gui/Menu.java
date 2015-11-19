@@ -20,6 +20,10 @@ public class Menu extends JPanel {
     private JButton btnGetHighscore;
     private JButton btnGetResults;
     private JButton btnLogOut;
+    private JLabel lblSnake;
+    private JLabel menuLabel;
+    private JLabel lblHiWelcome;
+
 
 
     public Menu() {
@@ -28,19 +32,19 @@ public class Menu extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel lblSnake = new JLabel("SNAKE");
+        lblSnake = new JLabel("SNAKE");
         lblSnake.setForeground(Color.BLACK);
         lblSnake.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         lblSnake.setBounds(292, 27, 84, 36);
         add(lblSnake);
 
-        JLabel menuLabel = new JLabel("MENU");
+        menuLabel = new JLabel("MENU");
         menuLabel.setForeground(Color.BLACK);
         menuLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
         menuLabel.setBounds(296, 62, 75, 36);
         add(menuLabel);
 
-        JLabel lblHiWelcome = new JLabel("Hi, welcome! Please choose your option");
+        lblHiWelcome = new JLabel("Hi, welcome! Please choose your option");
         lblHiWelcome.setForeground(Color.BLACK);
         lblHiWelcome.setBounds(213, 100, 250, 16);
         add(lblHiWelcome);
