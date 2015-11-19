@@ -17,6 +17,7 @@ public class Login extends JPanel {
     private JTextField txtUsername;
     private JTextField txtTypePassword;
     private JLabel errorMessage;
+    private JLabel loginLabel;
     private JButton btnLogin;
 
     /**
@@ -28,7 +29,7 @@ public class Login extends JPanel {
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        JLabel loginLabel = new JLabel("SNAKE GAME");
+        loginLabel = new JLabel("SNAKE GAME");
         loginLabel.setBounds(245, 37, 177, 41);
         loginLabel.setForeground(Color.BLACK);
         loginLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
