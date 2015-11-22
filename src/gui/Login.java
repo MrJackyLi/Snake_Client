@@ -38,13 +38,13 @@ public class Login extends JPanel {
         add(loginLabel);
 
         txtUsername = new JTextField();
-        txtUsername.setText("Type Username");
+        txtUsername.setToolTipText("Type your username here!");
         txtUsername.setBounds(245, 153, 177, 48);
         add(txtUsername);
         txtUsername.setColumns(10);
 
         txtTypePassword = new JTextField();
-        txtTypePassword.setText("Type Password");
+        txtTypePassword.setToolTipText("Type your password here!");
         txtTypePassword.setColumns(10);
         txtTypePassword.setBounds(245, 226, 177, 48);
         add(txtTypePassword);
