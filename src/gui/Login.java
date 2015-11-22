@@ -18,6 +18,8 @@ public class Login extends JPanel {
     private JTextField txtTypePassword;
     private JLabel errorMessage;
     private JLabel loginLabel;
+    private JLabel lblUser;
+    private JLabel lblPass;
     private JButton btnLogin;
     private JButton btnSignIn;
 
@@ -36,6 +38,14 @@ public class Login extends JPanel {
         loginLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
         loginLabel.setBackground(Color.BLACK);
         add(loginLabel);
+
+        lblUser = new JLabel("USERNAME:");
+        lblUser.setBounds(161, 169, 72, 16);
+        add(lblUser);
+
+        lblPass = new JLabel("PASSWORD:");
+        lblPass.setBounds(163, 242, 84, 16);
+        add(lblPass);
 
         txtUsername = new JTextField();
         txtUsername.setToolTipText("Type your username here!");
