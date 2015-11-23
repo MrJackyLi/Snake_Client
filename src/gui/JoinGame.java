@@ -11,24 +11,24 @@ package gui;
 /**
  * Created by Jacky on 16/11/15.
  */
-public class StartGame extends JPanel {
+public class JoinGame extends JPanel {
 
-    private JLabel lblStart;
+    private JLabel lblJoin;
     private JButton btnBack;
-    private JButton btnStartGame;
+    private JButton btnJoinGame;
     /**
      * Create the panel.
      */
-    public StartGame() {
+    public JoinGame() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
         setBounds(100, 100, 668, 395);
         setLayout(null);
 
-        lblStart = new JLabel("START GAME");
-        lblStart.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblStart.setBounds(250, 16, 167, 41);
-        add(lblStart);
+        lblJoin = new JLabel("JOIN GAME");
+        lblJoin.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
+        lblJoin.setBounds(250, 16, 167, 41);
+        add(lblJoin);
 
         btnBack = new JButton("BACK TO MENU");
         btnBack.setForeground(Color.red);
@@ -36,10 +36,10 @@ public class StartGame extends JPanel {
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
-        btnStartGame = new JButton("START GAME");
-        btnStartGame.setForeground(new Color(0, 128, 9));
-        btnStartGame.setBounds(180, 333, 147, 41);
-        add(btnStartGame);
+        btnJoinGame = new JButton("JOIN GAME");
+        btnJoinGame.setForeground(new Color(0, 128, 9));
+        btnJoinGame.setBounds(180, 333, 147, 41);
+        add(btnJoinGame);
     }
 
 

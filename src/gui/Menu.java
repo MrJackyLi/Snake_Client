@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 public class Menu extends JPanel {
 
-    private JButton btnStartGame;
+    private JButton btnJoinGame;
     private JButton btnCreateGame;
     private JButton btnDeleteGame;
     private JButton btnGetHighscore;
@@ -50,11 +50,11 @@ public class Menu extends JPanel {
         lblHiWelcome.setBounds(213, 100, 250, 16);
         add(lblHiWelcome);
 
-        btnStartGame = new JButton("Start Game");
-        btnStartGame.setForeground(Color.BLACK);
-        btnStartGame.setBounds(53, 128, 243, 70);
-        btnStartGame.setActionCommand("Start Game");
-        add(btnStartGame);
+        btnJoinGame = new JButton("Join Game");
+        btnJoinGame.setForeground(Color.BLACK);
+        btnJoinGame.setBounds(53, 128, 243, 70);
+        btnJoinGame.setActionCommand("Join Game");
+        add(btnJoinGame);
 
         btnCreateGame = new JButton("Create Game");
         btnCreateGame.setForeground(Color.BLACK);
@@ -89,7 +89,7 @@ public class Menu extends JPanel {
     }
 
     public void addACList(ActionListener ac){
-        btnStartGame.addActionListener(ac);
+        btnJoinGame.addActionListener(ac);
         btnCreateGame.addActionListener(ac);
         btnDeleteGame.addActionListener(ac);
         btnGetHighscore.addActionListener(ac);

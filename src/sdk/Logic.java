@@ -24,8 +24,8 @@ public class Logic {
                     new LoginActionListener());
             screen.getMenu().addACList(
                     new MenuActionListener());
-            screen.getStartGame().actionPerformedBack(
-                    new StartActionListenerBack());
+            screen.getJoinGame().actionPerformedBack(
+                    new JoinActionListenerBack());
             screen.getCreateGame().actionPerformedBack(
                     new CreateActionListenerBack());
             screen.getDeleteGame().actionPerformedBack(
@@ -63,8 +63,8 @@ public class Logic {
 
         public void actionPerformed(ActionEvent e){
             String actCom = e.getActionCommand();
-            if(actCom.equals("Start Game")){
-                screen.show(Screen.STARTGAME);
+            if(actCom.equals("Join Game")){
+                screen.show(Screen.JOINGAME);
             }
             else if(actCom.equals("Create Game")){
                 screen.show(Screen.CREATEGAME);
@@ -84,7 +84,7 @@ public class Logic {
         }
     }
 
-    private class StartActionListenerBack implements ActionListener{
+    private class JoinActionListenerBack implements ActionListener{
 
         public void actionPerformed(ActionEvent back){
             screen.show(Screen.MENU);
