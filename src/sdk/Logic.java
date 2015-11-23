@@ -38,6 +38,21 @@ public class Logic {
             screen.show(Screen.LOGIN);
         }
 
+    public static void login(String username, String password){
+
+        ServerConnection serverConnection = new ServerConnection();
+
+        User user = new User();
+        user.setPassword(password);
+        user.setUsername(username);
+
+        String json = new Gson().toJson(user);
+
+        serverConnection.post(json, "login/");
+
+
+    }
+
    /* private boolean isEmpty(String text){
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
