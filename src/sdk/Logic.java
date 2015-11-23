@@ -74,7 +74,7 @@ public class Logic {
                 String passfield = screen.getLogin().getTxtTypePassword().getText();
 
                 if (isEmpty(userfield) || isEmpty(passfield)){
-                    screen.getLogin().setErrorMessage("Type username and password");
+                    screen.getLogin().setErrorMessage("Please type username and password!");
                 }
                 else{
 

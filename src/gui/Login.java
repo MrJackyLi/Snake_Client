@@ -61,6 +61,7 @@ public class Login extends JPanel {
 
         errorMessage = new JLabel("");
         errorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        errorMessage.setForeground(Color.red);
         errorMessage.setBounds(175, 90, 318, 51);
         add(errorMessage);
 
