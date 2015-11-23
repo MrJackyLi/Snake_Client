@@ -53,7 +53,7 @@ public class Logic {
 
     }
 
-   /* private boolean isEmpty(String text){
+   private boolean isEmpty(String text){
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
 
@@ -62,14 +62,23 @@ public class Logic {
         } else {
             return false;
         }
-    }*/
+    }
 
     private class LoginActionListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
-                screen.show(Screen.MENU);
+
+                String userfield = screen.getLogin().getTxtUsername().getText();
+                String passfield = screen.getLogin().getTxtTypePassword().getText();
+
+                if (isEmpty(userfield) || isEmpty(passfield)){
+                    screen.getLogin().setErrorMessage("Type username and password");
+                }
+                else{
+
+                screen.show(Screen.MENU);}
             }
         }
     }
