@@ -15,6 +15,7 @@ public class StartGame extends JPanel {
 
     private JLabel lblStart;
     private JButton btnBack;
+    private JButton btnStartGame;
     /**
      * Create the panel.
      */
@@ -30,10 +31,15 @@ public class StartGame extends JPanel {
         add(lblStart);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setBounds(260, 336, 147, 41);
+        btnBack.setForeground(Color.red);
+        btnBack.setBounds(339, 333, 147, 41);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
+        btnStartGame = new JButton("START GAME");
+        btnStartGame.setForeground(new Color(0, 128, 9));
+        btnStartGame.setBounds(180, 333, 147, 41);
+        add(btnStartGame);
     }
 
 
