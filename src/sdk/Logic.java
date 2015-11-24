@@ -14,13 +14,11 @@ public class Logic {
 
     private Screen screen;
     private ServerConnection serverConnection;
-    private User user;
 
     public Logic(){
         screen = new Screen();
         screen.setVisible(true);
         serverConnection = new ServerConnection();
-        user = new User();
     }
 
         public void run(){

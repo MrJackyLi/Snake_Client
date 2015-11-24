@@ -1,5 +1,6 @@
 package sdk;
 
+import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -61,6 +62,23 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
         return output;
         //System.out.println(output);
+
+    }
+
+    public User login(String username, String password){
+
+        User user = new User();
+
+        user.setPassword(password);
+        user.setUsername(username);
+
+        String jsonUser = new Gson().toJson(user);
+
+        response = post(jsonUser,"login/");
+
+        user = gson.fromJson(response, User);
+
+        return user;
 
     }
 }
