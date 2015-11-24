@@ -76,7 +76,7 @@ public class ServerConnection {
 
         response = post(jsonUser,"login/");
 
-        user = Gson().fromJson(response, User);
+        user = new Gson().fromJson(response, User);
 
         return user;
 
