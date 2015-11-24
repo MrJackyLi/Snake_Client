@@ -42,19 +42,7 @@ public class Logic {
             screen.show(Screen.LOGIN);
         }
 
-    public void login(String username, String password){
 
-        user.setPassword(password);
-        user.setUsername(username);
-        user.getPassword(password);
-        user.getUsername(username);
-
-
-        String json = new Gson().toJson(user);
-
-        serverConnection.post(json, "login/");
-
-    }
 
    private boolean isEmpty(String text){
         //trim sørger for at der ikke er tomme spaces
