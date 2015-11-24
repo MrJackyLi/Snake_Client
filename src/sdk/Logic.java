@@ -61,7 +61,7 @@ public class Logic {
 
                 String userField = screen.getLogin().getTxtUsername().getText();
                 String passField = screen.getLogin().getTxtTypePassword().getText();
-                String json = new Gson().toJson(user);
+                //String json = new Gson().toJson(user);
 
                 if (isEmpty(userField) || isEmpty(passField)){
                     screen.getLogin().setErrorMessage("Please type username and password!");

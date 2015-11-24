@@ -74,9 +74,9 @@ public class ServerConnection {
 
         String jsonUser = new Gson().toJson(user);
 
-        response = post(jsonUser,"login/");
+        String response = post(jsonUser,"login/");
 
-        user = new Gson().fromJson(response, User);
+        user = new Gson().fromJson(response, User.class);
 
         return user;
 
