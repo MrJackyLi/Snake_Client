@@ -15,4 +15,8 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public void getPassword(String password) { this.password = password; }
+
+    public void getUsername(String username) { this.username = username; }
 }

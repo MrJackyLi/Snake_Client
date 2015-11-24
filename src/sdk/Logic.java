@@ -46,6 +46,9 @@ public class Logic {
 
         user.setPassword(password);
         user.setUsername(username);
+        user.getPassword(password);
+        user.getUsername(username);
+
 
         String json = new Gson().toJson(user);
 
@@ -80,11 +83,10 @@ public class Logic {
                 else {
                         screen.getLogin().setErrorMessage("Wrong username or password");
                     //tjek login
-                    for (User :serverConnection.(json, "login/")) {
+                    for (User user : serverConnection.) {
 
-                        if (userField.equals(user.setUsername())
-                                && passField.equals(user.setPassword())) {
-                            currentUser = user;
+                        if (userField.equals(user.getUsername())
+                                && passField.equals(user.getPassword())) {
 
                             else
                             screen.show(Screen.MENU);
