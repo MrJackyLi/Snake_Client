@@ -13,10 +13,14 @@ import gui.*;
 public class Logic {
 
     private Screen screen;
+    private ServerConnection serverConnection;
+    private User user;
 
     public Logic(){
         screen = new Screen();
         screen.setVisible(true);
+        serverConnection = new ServerConnection();
+        user = new User();
     }
 
         public void run(){
@@ -38,18 +42,14 @@ public class Logic {
             screen.show(Screen.LOGIN);
         }
 
-    public static void login(String username, String password){
+    public void login(String username, String password){
 
-        ServerConnection serverConnection = new ServerConnection();
-
-        User user = new User();
         user.setPassword(password);
         user.setUsername(username);
 
         String json = new Gson().toJson(user);
 
         serverConnection.post(json, "login/");
-
 
     }
 
@@ -70,15 +70,27 @@ public class Logic {
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
 
-                String userfield = screen.getLogin().getTxtUsername().getText();
-                String passfield = screen.getLogin().getTxtTypePassword().getText();
+                String userField = screen.getLogin().getTxtUsername().getText();
+                String passField = screen.getLogin().getTxtTypePassword().getText();
+                String json = new Gson().toJson(user);
 
-                if (isEmpty(userfield) || isEmpty(passfield)){
+                if (isEmpty(userField) || isEmpty(passField)){
                     screen.getLogin().setErrorMessage("Please type username and password!");
                 }
-                else{
+                else {
+                        screen.getLogin().setErrorMessage("Wrong username or password");
+                    //tjek login
+                    for (User :serverConnection.(json, "login/")) {
 
-                screen.show(Screen.MENU);}
+                        if (userField.equals(user.setUsername())
+                                && passField.equals(user.setPassword())) {
+                            currentUser = user;
+
+                            else
+                            screen.show(Screen.MENU);
+                        }
+                    }
+                }
             }
         }
     }
