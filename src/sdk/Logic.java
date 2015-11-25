@@ -75,10 +75,12 @@ public class Logic {
 
                         if (userField.equals(usr.getUsername())
                                 && passField.equals(usr.getPassword())) {
+                            screen.show(Screen.MENU);}
 
                             else
-                            screen.show(Screen.MENU);
-                        }
+                                screen.show(Screen.MENU);
+
+
                     }
                 }
             }
