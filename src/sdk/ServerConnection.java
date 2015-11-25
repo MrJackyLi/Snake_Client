@@ -67,18 +67,18 @@ public class ServerConnection {
 
     public User login(String username, String password){
 
-        User user = new User();
+        User usr = new User();
 
-        user.setPassword(password);
-        user.setUsername(username);
+        usr.setPassword(password);
+        usr.setUsername(username);
 
-        String jsonUser = new Gson().toJson(user);
+        String jsonUser = new Gson().toJson(usr);
 
         String response = post(jsonUser,"login/");
 
-        user = new Gson().fromJson(response, User.class);
+        usr = new Gson().fromJson(response, User.class);
 
-        return user;
+        return usr;
 
     }
 }

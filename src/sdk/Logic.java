@@ -14,39 +14,39 @@ public class Logic {
 
     private Screen screen;
     private ServerConnection serverConnection;
+    private User currentUser;
 
-    public Logic(){
+    public Logic() {
         screen = new Screen();
         screen.setVisible(true);
         serverConnection = new ServerConnection();
     }
 
-        public void run(){
-            screen.getLogin().addActionListener(
-                    new LoginActionListener());
-            screen.getMenu().addACList(
-                    new MenuActionListener());
-            screen.getJoinGame().actionPerformedBack(
-                    new JoinActionListenerBack());
-            screen.getCreateGame().actionPerformedBack(
-                    new CreateActionListenerBack());
-            screen.getDeleteGame().actionPerformedBack(
-                    new DeleteActionListenerBack());
-            screen.getHighscore().actionPerformedBack(
-                    new HighscoreActionListenerBack());
-            screen.getResult().actionPerformedBack(
-                    new ResultActionListenerBack());
+    public void run() {
+        screen.getLogin().addActionListener(
+                new LoginActionListener());
+        screen.getMenu().addACList(
+                new MenuActionListener());
+        screen.getJoinGame().actionPerformedBack(
+                new JoinActionListenerBack());
+        screen.getCreateGame().actionPerformedBack(
+                new CreateActionListenerBack());
+        screen.getDeleteGame().actionPerformedBack(
+                new DeleteActionListenerBack());
+        screen.getHighscore().actionPerformedBack(
+                new HighscoreActionListenerBack());
+        screen.getResult().actionPerformedBack(
+                new ResultActionListenerBack());
 
-            screen.show(Screen.LOGIN);
-        }
+        screen.show(Screen.LOGIN);
+    }
 
 
-
-   private boolean isEmpty(String text){
+    private boolean isEmpty(String text) {
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
 
-        if (text.equals("") || text.length() < 1 || text == null){
+        if (text.equals("") || text.length() < 1 || text == null) {
             return true;
         } else {
             return false;
@@ -61,18 +61,20 @@ public class Logic {
 
                 String userField = screen.getLogin().getTxtUsername().getText();
                 String passField = screen.getLogin().getTxtTypePassword().getText();
-                //String json = new Gson().toJson(user);
 
-                if (isEmpty(userField) || isEmpty(passField)){
+
+                if (isEmpty(userField) || isEmpty(passField)) {
                     screen.getLogin().setErrorMessage("Please type username and password!");
-                }
-                else {
-                        screen.getLogin().setErrorMessage("Wrong username or password");
-                    //tjek login
-                    for (User user : serverConnection.) {
+                } else {
+                    screen.getLogin().setErrorMessage("Wrong username or password");
+                    User usr = new User();
+                    usr = serverConnection.login(userField, passField);
 
-                        if (userField.equals(user.getUsername())
-                                && passField.equals(user.getPassword())) {
+                    //tjek login
+                    if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {
+
+                        if (userField.equals(usr.getUsername())
+                                && passField.equals(usr.getPassword())) {
 
                             else
                             screen.show(Screen.MENU);
@@ -82,6 +84,7 @@ public class Logic {
             }
         }
     }
+
 
     private class MenuActionListener implements ActionListener{
 
@@ -144,9 +147,3 @@ public class Logic {
     }
 
 }
-
-
-
-
-
-
