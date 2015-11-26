@@ -20,7 +20,6 @@ public class Menu extends JPanel {
     private JButton btnCreateGame;
     private JButton btnDeleteGame;
     private JButton btnGetHighscore;
-    private JButton btnGetResults;
     private JButton btnLogOut;
     private JLabel lblSnake;
     private JLabel menuLabel;
@@ -64,7 +63,7 @@ public class Menu extends JPanel {
 
         btnDeleteGame = new JButton("Delete Game");
         btnDeleteGame.setForeground(Color.BLACK);
-        btnDeleteGame.setBounds(53, 299, 243, 70);
+        btnDeleteGame.setBounds(376, 213, 243, 70);
         btnDeleteGame.setActionCommand("Delete Game");
         add(btnDeleteGame);
 
@@ -74,15 +73,9 @@ public class Menu extends JPanel {
         btnGetHighscore.setActionCommand("Highscore");
         add(btnGetHighscore);
 
-        btnGetResults = new JButton("Get Results");
-        btnGetResults.setForeground(Color.BLACK);
-        btnGetResults.setBounds(376, 213, 243, 70);
-        btnGetResults.setActionCommand("Result");
-        add(btnGetResults);
-
         btnLogOut = new JButton("Log Out");
         btnLogOut.setForeground(Color.BLACK);
-        btnLogOut.setBounds(376, 299, 243, 70);
+        btnLogOut.setBounds(212, 302, 243, 70);
         btnLogOut.setActionCommand("Log Out");
         add(btnLogOut);
 
@@ -93,7 +86,6 @@ public class Menu extends JPanel {
         btnCreateGame.addActionListener(ac);
         btnDeleteGame.addActionListener(ac);
         btnGetHighscore.addActionListener(ac);
-        btnGetResults.addActionListener(ac);
         btnLogOut.addActionListener(ac);
     }
 

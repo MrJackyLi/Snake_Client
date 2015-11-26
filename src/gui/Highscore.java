@@ -29,7 +29,7 @@ public class Highscore extends JPanel {
         add(lblHighscore);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setBounds(260, 306, 147, 41);
+        btnBack.setBounds(260, 354, 147, 41);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 

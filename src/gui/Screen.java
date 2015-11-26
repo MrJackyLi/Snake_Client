@@ -18,7 +18,7 @@ public class Screen extends JFrame {
     public static final String CREATEGAME = "Create Game";
     public static final String DELETEGAME = "Delete Game";
     public static final String HIGHSCORE = "HighScore";
-    public static final String RESULT = "Result";
+
 
     private JPanel contentPane;
     private Login login;
@@ -27,7 +27,7 @@ public class Screen extends JFrame {
     private CreateGame creategame;
     private DeleteGame deletegame;
     private Highscore highscore;
-    private Result result;
+
 
 
 
@@ -63,9 +63,6 @@ public class Screen extends JFrame {
         highscore = new Highscore();
             contentPane.add(highscore, HIGHSCORE);
 
-        result = new Result();
-            contentPane.add(result, RESULT);
-
         c = (CardLayout) getContentPane().getLayout();
     }
 
@@ -97,7 +94,4 @@ public class Screen extends JFrame {
         return highscore;
     }
 
-    public Result getResult(){
-        return result;
-    }
 }
