@@ -12,7 +12,7 @@ public class Main {
         logic.run();
         ServerConnection sc = new ServerConnection();
 
-        sc.get("users");
+        //sc.get("users");
 
 
        // logic.login("jali","123");

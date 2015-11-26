@@ -73,15 +73,15 @@ public class Logic {
                     //tjek login
                     if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {
 
-                        if (userField.equals(usr.getUsername())
-                                && passField.equals(usr.getPassword())) {
-                            screen.show(Screen.MENU);}
+                  /*      if (userField.equals(usr.getUsername())
+                                && passField.equals(usr.getPassword())) {*/
+                            screen.show(Screen.MENU);
+                    }
 
                             else
                                 screen.show(Screen.MENU);
 
 
-                    }
                 }
             }
         }
