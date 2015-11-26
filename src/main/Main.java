@@ -3,6 +3,8 @@ package main;
 import sdk.Logic;
 import sdk.ServerConnection;
 
+import java.security.Security;
+
 /**
  * Created by Jacky on 19/11/15.
  */
@@ -12,7 +14,8 @@ public class Main {
         logic.run();
         ServerConnection sc = new ServerConnection();
 
-        //sc.get("users");
+        sc.get("users");
+
 
 
        // logic.login("jali","123");

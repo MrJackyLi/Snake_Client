@@ -1,12 +1,9 @@
 package gui;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Canvas;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -15,7 +12,7 @@ import java.awt.event.ActionEvent;
  */
 public class Login extends JPanel {
     private JTextField txtUsername;
-    private JTextField txtTypePassword;
+    private JPasswordField txtTypePassword;
     private JLabel errorMessage;
     private JLabel loginLabel;
     private JLabel lblUser;
@@ -53,7 +50,7 @@ public class Login extends JPanel {
         add(txtUsername);
         txtUsername.setColumns(10);
 
-        txtTypePassword = new JTextField();
+        txtTypePassword = new JPasswordField();
         txtTypePassword.setToolTipText("Type your password here!");
         txtTypePassword.setColumns(10);
         txtTypePassword.setBounds(245, 226, 177, 48);
@@ -61,6 +58,7 @@ public class Login extends JPanel {
 
         errorMessage = new JLabel("");
         errorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        errorMessage.setHorizontalAlignment(SwingConstants.CENTER);
         errorMessage.setForeground(Color.red);
         errorMessage.setBounds(175, 90, 318, 51);
         add(errorMessage);
