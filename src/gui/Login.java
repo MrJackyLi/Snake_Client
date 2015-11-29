@@ -18,7 +18,6 @@ public class Login extends JPanel {
     private JLabel lblUser;
     private JLabel lblPass;
     private JButton btnLogin;
-    private JButton btnSignIn;
 
     /**
      * Create the panel.
@@ -64,14 +63,9 @@ public class Login extends JPanel {
         add(errorMessage);
 
         btnLogin = new JButton("Login");
-        btnLogin.setBounds(175, 305, 147, 41);
+        btnLogin.setBounds(260, 305, 147, 41);
         btnLogin.setActionCommand("Login");
         add(btnLogin);
-
-        btnSignIn = new JButton("Sign In");
-        btnSignIn.setBounds(334,305,147,41);
-        btnSignIn.setActionCommand("Sign In");
-        add(btnSignIn);
     }
 
     public JTextField getTxtUsername() {
@@ -82,6 +76,9 @@ public class Login extends JPanel {
         return txtTypePassword;
     }
 
+    public JTextField setTxtUsername(){return txtUsername; }
+
+    public JTextField setTxtTypePassword(){ return txtTypePassword;}
     public void setErrorMessage(String errorMessage){
         this.errorMessage.setText(errorMessage);
     }
@@ -99,7 +96,4 @@ public class Login extends JPanel {
         btnLogin.addActionListener(l);
     }
 
-    public void addSignInActionListener(ActionListener s){
-        btnSignIn.addActionListener(s);
-    }
 }

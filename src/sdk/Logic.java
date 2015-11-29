@@ -35,7 +35,6 @@ public class Logic {
                 new DeleteActionListenerBack());
         screen.getHighscore().actionPerformedBack(
                 new HighscoreActionListenerBack());
-
         screen.show(Screen.LOGIN);
     }
 
@@ -73,11 +72,8 @@ public class Logic {
 
                         if (usr != null) {
                             screen.show(Screen.MENU);
-                            screen.getLogin().setErrorMessage("");
-                        } /*else
-                            screen.show(Screen.MENU);*/
+                        }
 
-                    //}
                 }
             }
         }
@@ -102,6 +98,7 @@ public class Logic {
             }
             else{
                 screen.show(Screen.LOGIN);
+                screen.getLogin().setErrorMessage("");
             }
         }
     }
