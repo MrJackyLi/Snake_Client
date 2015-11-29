@@ -13,13 +13,13 @@ import gui.*;
 public class Logic {
 
     private Screen screen;
-    private ServerConnection serverConnection;
+    private ServerConnection sc;
     private User currentUser;
 
     public Logic() {
         screen = new Screen();
         screen.setVisible(true);
-        serverConnection = new ServerConnection();
+        sc = new ServerConnection();
     }
 
     public void run() {
@@ -65,7 +65,7 @@ public class Logic {
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
                     User usr = new User();
-                    usr = serverConnection.login(userField, passField);
+                    usr = sc.login(userField, passField);
 
                     //tjek login
                   //  if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {

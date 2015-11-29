@@ -1,14 +1,8 @@
 package gui;
 
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import gui.OpponentTable;
 
@@ -101,7 +95,7 @@ public class CreateGame extends JPanel {
         lbldRight.setBounds(45, 325, 74, 21);
         add(lbldRight);
 
-        table = new JTable(new OpponentTable());
+        table = new OpponentTable();
         table.setBounds(368, 104, 251, 281);
         add(table);
 

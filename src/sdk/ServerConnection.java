@@ -1,9 +1,12 @@
 package sdk;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+
+import java.util.ArrayList;
 
 /**
  * Created by Jacky on 10/11/15.
@@ -33,7 +36,7 @@ public class ServerConnection {
         return port;
     }
 
-    public void get(String path){
+    public String get(String path){
 
         Client client = Client.create();
 
@@ -44,6 +47,7 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
         System.out.println(output);
 
+        return output;
 
     }
 
@@ -79,6 +83,13 @@ public class ServerConnection {
         usr = new Gson().fromJson(response, User.class);
 
         return usr;
+
+    }
+
+    public ArrayList <User> getUsers(){
+
+    String jsonOfUsers = this.get("users");
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
 
     }
 }
