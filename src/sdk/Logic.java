@@ -103,6 +103,22 @@ public class Logic {
         }
     }
 
+    private class CreateActionListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           if (e.getSource() == screen.getCreateGame().getBtnCreateGame()){
+               Game game = new Game();
+               Gamer host = new Gamer();
+               Gamer opponent = new Gamer();
+
+               game.setHost(host);
+               game
+           }
+
+
+        }
+    }
+
     private class JoinActionListenerBack implements ActionListener{
 
         public void actionPerformed(ActionEvent back){

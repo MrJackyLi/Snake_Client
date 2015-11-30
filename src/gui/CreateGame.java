@@ -95,7 +95,7 @@ public class CreateGame extends JPanel {
         lbldRight.setBounds(45, 325, 74, 21);
         add(lbldRight);
 
-        table = new OpponentTable();
+        table = new JTable(new OpponentTable());
         table.setBounds(368, 104, 251, 281);
         add(table);
 
@@ -104,7 +104,11 @@ public class CreateGame extends JPanel {
         add(lblChooseOpponent);
     }
 
+    public JButton getBtnCreateGame(){return btnCreateGame;}
+
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
+
+    public void addActionCreate(ActionListener create) {btnCreateGame.addActionListener(create);}
 }

@@ -1,6 +1,9 @@
 package gui;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import sdk.ServerConnection;
+import sdk.User;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -11,37 +14,44 @@ import java.util.Objects;
 /**
  * Created by Jacky on 29/11/15.
  */
-public class OpponentTable extends JTable {
+public class OpponentTable extends AbstractTableModel {
 
     private ServerConnection sc;
+    private ArrayList<User> userdata;
+    private String[] columns = {"email", "user"};
+    private int numberOfRows;
 
     public OpponentTable() {
-        sc = new ServerConnection();
+        this.userdata = userdata;
+        fireTableStructureChanged();
+       // sc = new ServerConnection();
     }
 
     public int getColumnCount() {
-        return 5;
+        return columns.length;
+    }
+
+    public Class<?> getColumnClass( int columnIndex){
+        return super.getColumnClass(columnIndex);
     }
 
     public int getRowCount() {
-        return sc.getUsers().size();
+        numberOfRows = userdata.size();
+        return numberOfRows;
     }
-/*
+
     public String getColumnName(int columnIndex){
-        switch (columnIndex){
-            case 0:
-                return "users";
+          return columns[columnIndex];
         }
-        return null;
-    }*/
-/*
-    public Objects getValueAt() {
-        sc.getUsers().get(rowIndex);
+
+    public Object getValueAt(int rowIndex, int coloumnIndex) {
         switch (coloumnIndex) {
             case 0:
-                return sc.getUsers().get("users/");
+                return userdata.get(rowIndex).getEmail();
+            case 1:
+                return userdata.get(rowIndex).getUsername();
         }
-        return getValueAt(rowIndex, coloumnIndex);*//*
-    }*/
+        return null;
+    }
 }
 

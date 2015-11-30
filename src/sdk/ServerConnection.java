@@ -86,10 +86,9 @@ public class ServerConnection {
 
     }
 
-    public ArrayList <User> getUsers(){
-
-    String jsonOfUsers = this.get("users");
+    public ArrayList <User> userData(){
+        String jsonOfUsers = this.get("users");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
-
     }
+
 }
