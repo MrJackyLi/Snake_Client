@@ -1,3 +1,4 @@
+/*
 package gui;
 
 import com.google.gson.Gson;
@@ -11,9 +12,11 @@ import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.Objects;
 
+*/
 /**
  * Created by Jacky on 29/11/15.
- */
+ *//*
+
 public class OpponentTable extends AbstractTableModel {
 
     private ServerConnection sc;
@@ -55,3 +58,4 @@ public class OpponentTable extends AbstractTableModel {
     }
 }
 
+*/

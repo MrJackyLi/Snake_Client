@@ -64,13 +64,15 @@ public class Logic {
                     screen.getLogin().setErrorMessage("Please type username and password!");
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
-                    User usr = new User();
-                    usr = sc.login(userField, passField);
+
+                    currentUser = new User();
+                    //User usr = new User();
+                    currentUser = sc.login(userField, passField);
 
                     //tjek login
                   //  if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {
 
-                        if (usr != null) {
+                        if (currentUser != null) {
                             screen.show(Screen.MENU);
                         }
 
@@ -106,18 +108,22 @@ public class Logic {
     private class CreateActionListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-           if (e.getSource() == screen.getCreateGame().getBtnCreateGame()){
-               Game game = new Game();
-               Gamer host = new Gamer();
-               Gamer opponent = new Gamer();
+            if(e.getSource() == screen.getCreateGame().getBtnCreateGame()){
+                Game game = new Game();
+                Gamer host = new Gamer();
+                Gamer opponent = new Gamer();
 
-               game.setHost(host);
-               game
+                game.setHost(host);
+                game.setOpponent(opponent);
+                game.setMapSize(500);
+
+                host.setId(currentUser.getId());
+                game.setName(screen.getCreateGame().getTxtFGameName());
            }
 
 
         }
-    }
+
 
     private class JoinActionListenerBack implements ActionListener{
 

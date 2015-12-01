@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.JTable;
-import gui.OpponentTable;
+//import gui.OpponentTable;
 
 /**
  * Created by Jacky on 16/11/15.
@@ -95,13 +95,22 @@ public class CreateGame extends JPanel {
         lbldRight.setBounds(45, 325, 74, 21);
         add(lbldRight);
 
-        table = new JTable(new OpponentTable());
+        /*table = new JTable(new OpponentTable());
         table.setBounds(368, 104, 251, 281);
-        add(table);
+        add(table);*/
 
         lblChooseOpponent = new JLabel("Choose opponent");
         lblChooseOpponent.setBounds(436, 82, 117, 16);
         add(lblChooseOpponent);
+    }
+
+
+    public JTextField getTxtFGameName() {
+        return txtFGameName;
+    }
+
+    public JTextField getTxtFMovements() {
+        return txtFMovements;
     }
 
     public JButton getBtnCreateGame(){return btnCreateGame;}

@@ -5,6 +5,9 @@ import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 
@@ -88,7 +91,27 @@ public class ServerConnection {
 
     public ArrayList <User> userData(){
         String jsonOfUsers = this.get("users");
-        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+        ArrayList<User> users = new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+        return users;
+    }
+
+    public String createGame(Game game){
+        String dataJson = this.post(new Gson().toJson(game),"games");
+
+        String message = "";
+
+        JSONParser parser = new JSONParser();{
+            try{
+                Object object = parser.parse(dataJson);
+                JSONObject jsonobject = (JSONObject) object;
+
+                message = (String)jsonobject.get("message");
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return message;
+        }
     }
 
 }
