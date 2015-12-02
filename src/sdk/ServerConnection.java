@@ -2,14 +2,17 @@ package sdk;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.corba.se.spi.activation.Server;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by Jacky on 10/11/15.
@@ -72,7 +75,7 @@ public class ServerConnection {
 
     }
 
-    public User login(String username, String password){
+    public User login(String username, String password) {
 
         User usr = new User();
 
@@ -81,37 +84,48 @@ public class ServerConnection {
 
         String jsonUser = new Gson().toJson(usr);
 
-        String response = post(jsonUser,"login/");
+        String response = post(jsonUser, "login/");
 
         usr = new Gson().fromJson(response, User.class);
 
         return usr;
-
     }
 
-    public ArrayList <User> userData(){
-        String jsonOfUsers = this.get("users");
-        ArrayList<User> users = new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
-        return users;
-    }
+        public String stringParser(String json)
+        {
+            JSONParser jsonParser = new JSONParser();
 
-    public String createGame(Game game){
-        String dataJson = this.post(new Gson().toJson(game),"games");
+            String message = "";
+            try
+            {
+                Object obj = jsonParser.parse(json);
+                JSONObject jsonObject = (JSONObject) obj;
 
-        String message = "";
+                message = ((String) jsonObject.get("message"));
 
-        JSONParser parser = new JSONParser();{
-            try{
-                Object object = parser.parse(dataJson);
-                JSONObject jsonobject = (JSONObject) object;
-
-                message = (String)jsonobject.get("message");
-
-            } catch (ParseException e) {
+            } catch (ParseException e)
+            {
                 e.printStackTrace();
             }
             return message;
+
+        }
+
+
+
+    public ArrayList <User> userData(){
+        String jsonOfUsers = this.get("users/");
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+
+    }
+
+    public String createGame(Game game)
+    {
+        String jsonOfUsers = this.post(new Gson().toJson(game),"games/");
+
+       return this.stringParser(jsonOfUsers);
+
         }
     }
 
-}
+

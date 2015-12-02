@@ -1,9 +1,11 @@
 package gui;
 
+import sdk.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import javax.swing.JTable;
+import java.util.ArrayList;
 //import gui.OpponentTable;
 
 /**
@@ -23,8 +25,9 @@ public class CreateGame extends JPanel {
     private JLabel lbldRight;
     private JLabel lblGameName;
     private JLabel lblTypeMovements;
-    private JTable table;
+    private JComboBox comboBox;
     private JLabel lblChooseOpponent;
+
 
     /**
      * Create the panel.
@@ -53,64 +56,64 @@ public class CreateGame extends JPanel {
         add(btnCreateGame);
 
         txtFGameName = new JTextField();
-        txtFGameName.setBounds(83, 137, 168, 41);
+        txtFGameName.setBounds(83, 137, 186, 41);
         add(txtFGameName);
         txtFGameName.setColumns(10);
 
         txtFMovements = new JTextField();
         txtFMovements.setColumns(10);
-        txtFMovements.setBounds(131, 265, 218, 81);
+        txtFMovements.setBounds(355, 255, 245, 81);
         add(txtFMovements);
 
         lblGameName = new JLabel("Game Name:");
-        lblGameName.setBounds(123, 109, 92, 16);
+        lblGameName.setBounds(138, 109, 92, 16);
         add(lblGameName);
 
         lblTypeMovements = new JLabel("Type Movements:");
-        lblTypeMovements.setBounds(192, 248, 117, 16);
+        lblTypeMovements.setBounds(416, 238, 117, 16);
         add(lblTypeMovements);
 
         lblActionsA = new JLabel("Actions: ");
         lblActionsA.setHorizontalAlignment(SwingConstants.CENTER);
-        lblActionsA.setBounds(35, 248, 94, 16);
+        lblActionsA.setBounds(127, 241, 94, 16);
         add(lblActionsA);
 
         lblWUp = new JLabel("\"W\": UP");
         lblWUp.setHorizontalAlignment(SwingConstants.CENTER);
-        lblWUp.setBounds(45, 271, 61, 16);
+        lblWUp.setBounds(138, 267, 61, 16);
         add(lblWUp);
 
         lblsDown = new JLabel("\"S\": DOWN");
         lblsDown.setHorizontalAlignment(SwingConstants.CENTER);
-        lblsDown.setBounds(45, 288, 74, 16);
+        lblsDown.setBounds(132, 333, 74, 16);
         add(lblsDown);
 
         lblaLeft = new JLabel("\"A\": LEFT");
         lblaLeft.setHorizontalAlignment(SwingConstants.CENTER);
-        lblaLeft.setBounds(45, 305, 74, 16);
+        lblaLeft.setBounds(48, 294, 74, 16);
         add(lblaLeft);
 
         lbldRight = new JLabel("\"D\": RIGHT");
         lbldRight.setHorizontalAlignment(SwingConstants.CENTER);
-        lbldRight.setBounds(45, 325, 74, 21);
+        lbldRight.setBounds(225, 292, 74, 21);
         add(lbldRight);
 
-        /*table = new JTable(new OpponentTable());
-        table.setBounds(368, 104, 251, 281);
-        add(table);*/
-
         lblChooseOpponent = new JLabel("Choose opponent");
-        lblChooseOpponent.setBounds(436, 82, 117, 16);
+        lblChooseOpponent.setBounds(429, 110, 117, 16);
         add(lblChooseOpponent);
+
+        comboBox = new JComboBox();
+        comboBox.setBounds(355, 137, 246, 41);
+        add(comboBox);
     }
 
 
-    public JTextField getTxtFGameName() {
-        return txtFGameName;
+    public String getTxtFGameName() {
+        return txtFGameName.getText();
     }
 
-    public JTextField getTxtFMovements() {
-        return txtFMovements;
+    public String getTxtFMovements() {
+        return txtFMovements.getText();
     }
 
     public JButton getBtnCreateGame(){return btnCreateGame;}
@@ -120,4 +123,18 @@ public class CreateGame extends JPanel {
     }
 
     public void addActionCreate(ActionListener create) {btnCreateGame.addActionListener(create);}
-}
+
+    public void addUser(ArrayList<User>users) {
+        comboBox.removeAllItems();;
+        for (User usr : users) {
+            comboBox.addItem(usr.getUsername());
+        }
+    }
+
+    public String getUser(){
+
+        return (String) comboBox.getSelectedItem();
+        }
+    }
+
+

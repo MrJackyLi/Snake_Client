@@ -30,7 +30,8 @@ public class Logic {
         screen.getJoinGame().actionPerformedBack(
                 new JoinActionListenerBack());
         screen.getCreateGame().actionPerformedBack(
-                new CreateActionListenerBack());
+                new CreateActionListener());
+        screen.getCreateGame().addActionCreate(new CreateActionListener() );
         screen.getDeleteGame().actionPerformedBack(
                 new DeleteActionListenerBack());
         screen.getHighscore().actionPerformedBack(
@@ -73,7 +74,9 @@ public class Logic {
                   //  if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {
 
                         if (currentUser != null) {
+
                             screen.show(Screen.MENU);
+
                         }
 
                 }
@@ -91,6 +94,7 @@ public class Logic {
             }
             else if(actCom.equals("Create Game")){
                 screen.show(Screen.CREATEGAME);
+                screen.getCreateGame().addUser(sc.userData());
             }
             else if(actCom.equals("Delete Game")){
                 screen.show(Screen.DELETEGAME);
@@ -105,24 +109,43 @@ public class Logic {
         }
     }
 
-    private class CreateActionListener implements ActionListener{
+    private class CreateActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == screen.getCreateGame().getBtnCreateGame()){
-                Game game = new Game();
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Create Game")) {
+               // screen.getCreateGame().addUser(sc.userData());
+            }
+             else if(e.getSource() == screen.getCreateGame().getBtnCreateGame()){
                 Gamer host = new Gamer();
-                Gamer opponent = new Gamer();
+                host.setId(currentUser.getId());
+                host.setControls(screen.getCreateGame().getTxtFMovements());
 
+                Game game = new Game();
+                Gamer opponent = new Gamer();
                 game.setHost(host);
                 game.setOpponent(opponent);
-                game.setMapSize(500);
-
-                host.setId(currentUser.getId());
+                game.setMapSize(20);
                 game.setName(screen.getCreateGame().getTxtFGameName());
-           }
 
 
+                for (User usr : sc.userData()) {
+                    if (usr.getUsername().equals(screen.getCreateGame().getUser())) {
+                        opponent.setId(usr.getId());
+                        System.out.println(usr.getId());
+                    }
+                }
+
+                sc.createGame(game);
+            }
+            if (currentUser != null) {
+
+                screen.show(Screen.MENU);
+            }
         }
+
+
+    }
 
 
     private class JoinActionListenerBack implements ActionListener{

@@ -86,6 +86,8 @@ public class Screen extends JFrame {
         return creategame;
     }
 
+    public CreateGame getBtnCreateGame(){ return creategame; }
+
     public DeleteGame getDeleteGame(){
         return deletegame;
     }

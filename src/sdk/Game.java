@@ -4,6 +4,7 @@
 
 package sdk;
 
+import javax.swing.*;
 import java.util.Date;
 
 public class Game {
@@ -14,16 +15,16 @@ public class Game {
     private Gamer host;
     private Gamer opponent;
     private String status;
-    private java.sql.Date created;
+    private Date created;
     private int mapSize;
 
     public Game(){}
 
-    public java.sql.Date getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(java.sql.Date created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
@@ -83,5 +84,6 @@ public class Game {
     public void setWinner(Gamer winner) {
         this.winner = winner;
     }
+
 } //end of class
 
