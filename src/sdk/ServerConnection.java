@@ -112,7 +112,6 @@ public class ServerConnection {
         }
 
 
-
     public ArrayList <User> userData(){
         String jsonOfUsers = this.get("users/");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
