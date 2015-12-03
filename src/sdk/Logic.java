@@ -73,23 +73,16 @@ public class Logic {
                     screen.getLogin().setErrorMessage("Please type username and password!");
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
-
-                    //User usr = new User();
                     currentUser = sc.login(userField, passField);
 
                     for(User usr: sc.userData()) {
                         System.out.println(usr.getUsername()+" "+usr.getId());
                         if(usr.getUsername().equals(screen.getLogin().getTxtUsername())){
                             currentUser = usr;
-
                         }
-
                     }
-
                         if (currentUser != null) {
-
                             screen.show(Screen.MENU);
-
                         }
                     System.out.println(currentUser.getId());
                 }

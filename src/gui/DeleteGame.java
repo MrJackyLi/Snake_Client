@@ -1,10 +1,8 @@
 package gui;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 /**
@@ -14,6 +12,8 @@ public class DeleteGame extends JPanel {
 
     private JLabel lblDeleteGame;
     private JButton btnBack;
+    private JButton btnDeleteGame;
+    private JComboBox comboDeleteBox;
     /**
      * Create the panel
      */
@@ -30,13 +30,27 @@ public class DeleteGame extends JPanel {
         add(lblDeleteGame);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setBounds(260, 306, 147, 41);
-        add(btnBack);
+        btnBack.setForeground(Color.RED);
+        btnBack.setBounds(406, 416, 147, 41);
         btnBack.setActionCommand("BACK TO MENU");
+        add(btnBack);
+
+        btnDeleteGame = new JButton("DELETE GAME");
+        btnDeleteGame.setForeground(Color.GREEN);
+        btnDeleteGame.setActionCommand("DELETE GAME");
+        btnDeleteGame.setBounds(83, 416, 147, 41);
+        add(btnDeleteGame);
+
+        comboDeleteBox = new JComboBox();
+        comboDeleteBox.setBounds(211, 215, 246, 41);
+        add(comboDeleteBox);
     }
 
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
+
+    public void addActionDelete(ActionListener delete) {btnDeleteGame.addActionListener(delete);}
+
 
 }

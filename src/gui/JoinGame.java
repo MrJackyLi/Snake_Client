@@ -45,13 +45,13 @@ public class JoinGame extends JPanel {
 
         btnBack = new JButton("BACK TO MENU");
         btnBack.setForeground(Color.red);
-        btnBack.setBounds(340, 427, 147, 41);
+        btnBack.setBounds(406, 416, 147, 41);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
         btnJoinGame = new JButton("JOIN GAME");
         btnJoinGame.setForeground(Color.green);
-        btnJoinGame.setBounds(181, 427, 147, 41);
+        btnJoinGame.setBounds(83, 416, 147, 41);
         add(btnJoinGame);
 
         txtJoinMove = new JTextField();
