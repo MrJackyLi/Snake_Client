@@ -156,6 +156,12 @@ public class ServerConnection {
        return this.stringParser(jsonOfUsers);
 
         }
+
+    public ArrayList<Score> getHighscores(){
+        String jsonOfUsers = this.get("/highscores");
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Score>>(){}.getType());
+    }
+
     }
 
 
