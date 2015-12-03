@@ -94,6 +94,13 @@ public class JoinGame extends JPanel {
         add(comboJoinBox);
     }
 
+    public void actionListenerJoin(ActionListener Join){
+        btnJoinGame.addActionListener(Join);
+    }
+
+    public JButton getBtnJoinGame() {
+        return btnJoinGame;
+    }
 
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);

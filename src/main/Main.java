@@ -16,10 +16,5 @@ public class Main {
 
         sc.get("users");
 
-
-
-
-
-       // logic.login("jali","123");
     }
 }

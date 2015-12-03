@@ -75,6 +75,22 @@ public class ServerConnection {
 
     }
 
+    public String put(String json, String path)
+    {
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
+
+        if (response.getStatus() != 200 && response.getStatus() != 201) {
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        String output = response.getEntity(String.class);
+        return output;
+    }
+
     public User login(String username, String password) {
 
         User usr = new User();
@@ -111,11 +127,26 @@ public class ServerConnection {
 
         }
 
+    public ArrayList<Game> gameChallenge(int userId){
+        String jsonOfUsers = this.get("games/pending/" + userId);
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
+    }
 
     public ArrayList <User> userData(){
         String jsonOfUsers = this.get("users/");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+    }
 
+    public String joinGame(Game game)
+    {
+        String jsonOfUsers = this.put(new Gson().toJson(game),"games/join");
+        return this.stringParser(jsonOfUsers);
+
+    }
+
+    public String gameStart(Game game){
+        String jsonOfUsers = this.put(new Gson().toJson(game),"games/start");
+        return this.stringParser(jsonOfUsers);
     }
 
     public String createGame(Game game)

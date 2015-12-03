@@ -29,9 +29,12 @@ public class Logic {
                 new MenuActionListener());
         screen.getJoinGame().actionPerformedBack(
                 new JoinActionListenerBack());
+        screen.getJoinGame().actionListenerJoin(
+                new JoinActionListener());
         screen.getCreateGame().actionPerformedBack(
-                new CreateActionListener());
-        screen.getCreateGame().addActionCreate(new CreateActionListener() );
+                new CreateActionListenerBack());
+        screen.getBtnCreateGame().addActionCreate(
+                new CreateActionListener() );
         screen.getDeleteGame().actionPerformedBack(
                 new DeleteActionListenerBack());
         screen.getHighscore().actionPerformedBack(
@@ -70,15 +73,10 @@ public class Logic {
                     //User usr = new User();
                     currentUser = sc.login(userField, passField);
 
-                    //tjek login
-                  //  if (userField.equals(usr.getUsername()) && passField.equals(usr.getPassword())) {
-
                         if (currentUser != null) {
 
                             screen.show(Screen.MENU);
-
                         }
-
                 }
             }
         }
@@ -105,6 +103,20 @@ public class Logic {
             else{
                 screen.show(Screen.LOGIN);
                 screen.getLogin().setErrorMessage("");
+            }
+        }
+    }
+
+    private class JoinActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Join Game")){
+
+            }
+            else if(e.getSource() == screen.getJoinGame().getBtnJoinGame()){
+
             }
         }
     }
