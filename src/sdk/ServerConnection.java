@@ -64,10 +64,10 @@ public class ServerConnection {
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
 
-        if (response.getStatus() != 200 && response.getStatus() != 201) {
+        /*if (response.getStatus() != 200 && response.getStatus() != 201) {
             throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatus());
-        }
+                    + response.getStatus());*/
+        //}
 
         String output = response.getEntity(String.class);
         return output;
@@ -75,17 +75,17 @@ public class ServerConnection {
 
     }
 
-    public String put(String json, String path)
+    public String put(String path, String json)
     {
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
 
-        if (response.getStatus() != 200 && response.getStatus() != 201) {
+     /*   if (response.getStatus() != 200 && response.getStatus() != 201) {
             throw new RuntimeException("Failed : HTTP error code : "
                     + response.getStatus());
-        }
+        }*/
 
         String output = response.getEntity(String.class);
         return output;
@@ -98,9 +98,9 @@ public class ServerConnection {
         usr.setPassword(password);
         usr.setUsername(username);
 
-        String jsonUser = new Gson().toJson(usr);
+        String jsonOfUser = new Gson().toJson(usr);
 
-        String response = post(jsonUser, "login/");
+        String response = post(jsonOfUser, "login/");
 
         usr = new Gson().fromJson(response, User.class);
 
@@ -139,13 +139,13 @@ public class ServerConnection {
 
     public String joinGame(Game game)
     {
-        String jsonOfUsers = this.put(new Gson().toJson(game),"games/join");
+        String jsonOfUsers = this.put("games/join", (new Gson().toJson(game)));
         return this.stringParser(jsonOfUsers);
 
     }
 
     public String gameStart(Game game){
-        String jsonOfUsers = this.put(new Gson().toJson(game),"games/start");
+        String jsonOfUsers = this.put("games/start",(new Gson().toJson(game)));
         return this.stringParser(jsonOfUsers);
     }
 

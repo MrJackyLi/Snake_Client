@@ -81,6 +81,9 @@ public class Screen extends JFrame {
     public JoinGame getJoinGame() {
         return joingame;
     }
+public JoinGame getBtnJoinGame(){
+    return joingame;
+}
 
     public CreateGame getCreateGame(){
         return creategame;

@@ -1,9 +1,12 @@
 package gui;
 
+        import sdk.Game;
+
         import java.awt.Color;
         import java.awt.Font;
         import java.awt.event.ActionEvent;
         import java.awt.event.ActionListener;
+        import java.util.ArrayList;
         import javax.swing.*;
 
 /**
@@ -100,6 +103,21 @@ public class JoinGame extends JPanel {
 
     public JButton getBtnJoinGame() {
         return btnJoinGame;
+    }
+
+    public String getTxtJoinMove() {
+        return txtJoinMove.getText();
+    }
+
+    public void setGame(ArrayList<Game> gameChallenge){
+        comboJoinBox.removeAllItems();
+        for (Game game : gameChallenge){
+            comboJoinBox.addItem(game.getName());
+        }
+    }
+    public String getChallenge ()
+    {
+        return (String) comboJoinBox.getSelectedItem();
     }
 
     public void actionPerformedBack(ActionListener back) {

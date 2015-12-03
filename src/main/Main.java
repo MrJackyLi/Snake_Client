@@ -12,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Logic logic = new Logic();
         logic.run();
-        ServerConnection sc = new ServerConnection();
+        //ServerConnection sc = new ServerConnection();
 
-        sc.get("users");
+       // sc.get("users");
 
     }
 }

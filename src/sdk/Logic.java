@@ -8,6 +8,8 @@ package sdk;
 import com.google.gson.Gson;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import gui.*;
 
 public class Logic {
@@ -15,11 +17,13 @@ public class Logic {
     private Screen screen;
     private ServerConnection sc;
     private User currentUser;
+    private ArrayList<Game> gameChallenge;
 
     public Logic() {
         screen = new Screen();
         screen.setVisible(true);
         sc = new ServerConnection();
+        currentUser = new User();
     }
 
     public void run() {
@@ -29,7 +33,7 @@ public class Logic {
                 new MenuActionListener());
         screen.getJoinGame().actionPerformedBack(
                 new JoinActionListenerBack());
-        screen.getJoinGame().actionListenerJoin(
+        screen.getBtnJoinGame().actionListenerJoin(
                 new JoinActionListener());
         screen.getCreateGame().actionPerformedBack(
                 new CreateActionListenerBack());
@@ -60,8 +64,9 @@ public class Logic {
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
 
-                String userField = screen.getLogin().getTxtUsername().getText();
+                String userField = screen.getLogin().getTxtUsername();
                 String passField = screen.getLogin().getTxtTypePassword().getText();
+
 
 
                 if (isEmpty(userField) || isEmpty(passField)) {
@@ -69,14 +74,24 @@ public class Logic {
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
 
-                    currentUser = new User();
                     //User usr = new User();
                     currentUser = sc.login(userField, passField);
+
+                    for(User usr: sc.userData()) {
+                        System.out.println(usr.getUsername()+" "+usr.getId());
+                        if(usr.getUsername().equals(screen.getLogin().getTxtUsername())){
+                            currentUser = usr;
+
+                        }
+
+                    }
 
                         if (currentUser != null) {
 
                             screen.show(Screen.MENU);
+
                         }
+                    System.out.println(currentUser.getId());
                 }
             }
         }
@@ -87,8 +102,22 @@ public class Logic {
 
         public void actionPerformed(ActionEvent e){
             String actCom = e.getActionCommand();
-            if(actCom.equals("Join Game")){
+            if(actCom.equals("Join Game")) {
                 screen.show(Screen.JOINGAME);
+
+
+
+                gameChallenge = sc.gameChallenge(currentUser.getId());
+
+                //for (Game g : gameChallenge)
+
+                    //g.getGameId();
+                    screen.getJoinGame().setGame(gameChallenge);
+
+
+
+                System.out.println(gameChallenge);
+
             }
             else if(actCom.equals("Create Game")){
                 screen.show(Screen.CREATEGAME);
@@ -116,6 +145,24 @@ public class Logic {
 
             }
             else if(e.getSource() == screen.getJoinGame().getBtnJoinGame()){
+
+                Game gameStart = null;
+
+                for (Game game : gameChallenge){
+                    if(screen.getJoinGame().getChallenge().equals(game.getName())){
+                        gameStart = game;
+                    }
+                }
+                gameStart.getOpponent().setControls(screen.getJoinGame().getTxtJoinMove());
+
+                sc.joinGame(gameStart);
+                sc.gameStart(gameStart);
+                for (User usr : sc.userData()){
+                    if(usr.getId()==gameStart.getWinner().getId())
+                    {
+                        gameStart.getWinner().setUsername(usr.getUsername());
+                    }
+                }
 
             }
         }
@@ -165,6 +212,7 @@ public class Logic {
         public void actionPerformed(ActionEvent back){
             screen.show(Screen.MENU);
         }
+
     }
 
     private class CreateActionListenerBack implements ActionListener{
