@@ -5,7 +5,7 @@
 package sdk;
 
 import javax.swing.*;
-import java.util.Date;
+import java.sql.Date;
 
 public class Game {
     //Creating the variables needed for the game

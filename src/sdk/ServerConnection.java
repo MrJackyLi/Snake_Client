@@ -128,7 +128,7 @@ public class ServerConnection {
         }
 
     public ArrayList<Game> gameChallenge(int userId){
-        String jsonOfUsers = this.get("games/pending/" + userId);
+        String jsonOfUsers = this.get("games/pending/"+ userId);
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
     }
 

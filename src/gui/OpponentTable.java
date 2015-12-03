@@ -1,3 +1,4 @@
+/*
 
 package gui;
 
@@ -13,9 +14,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
+*/
 /**
  * Created by Jacky on 29/11/15.
- */
+ *//*
+
 
 public class OpponentTable extends AbstractTableModel {
 
@@ -46,15 +49,16 @@ public class OpponentTable extends AbstractTableModel {
         }
 
     public Object getValueAt(int rowIndex, int coloumnIndex) {
-        sc.userData().get(rowIndex);
+        userData().get(rowIndex);
         switch (coloumnIndex) {
             case 0:
-                return sc.userData().get(rowIndex).getEmail();
+                return userData().get(rowIndex).getEmail();
             case 1:
-                return sc.userData().get(rowIndex).getUsername();
+                return userData().get(rowIndex).getUsername();
         }
         return null;
     }
 }
 
 
+*/

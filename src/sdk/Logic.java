@@ -105,16 +105,12 @@ public class Logic {
             if(actCom.equals("Join Game")) {
                 screen.show(Screen.JOINGAME);
 
-
-
                 gameChallenge = sc.gameChallenge(currentUser.getId());
 
-                //for (Game g : gameChallenge)
+                for (Game g : gameChallenge)
 
-                    //g.getGameId();
+                    g.getGameId();
                     screen.getJoinGame().setGame(gameChallenge);
-
-
 
                 System.out.println(gameChallenge);
 
