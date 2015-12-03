@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-//import gui.OpponentTable;
 
 /**
  * Created by Jacky on 16/11/15.

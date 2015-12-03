@@ -1,47 +1,44 @@
-/*
 
 package gui;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import sdk.ServerConnection;
-import sdk.User;
+import sdk.Score;
+
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.Objects;
 
 
-*/
+
 /**
  * Created by Jacky on 29/11/15.
- *//*
+ */
 
 
-public class OpponentTable extends AbstractTableModel {
+public class HighscoreTable extends AbstractTableModel {
 
-    private ServerConnection sc;
-    //private ArrayList<User> userData;
-    private String[] columns = {"email", "user"};
+    private ArrayList<Score> highscores;
+    private String[] columns = {"Username","Score", "Game id"};
     private int numberOfRows;
 
-    public OpponentTable() {
-        sc = new ServerConnection();
+    public HighscoreTable(ArrayList<Score> highscores) {
+
+        this.highscores = highscores;
     }
 
 
     public int getColumnCount() {
         return columns.length;
     }
-
+//identifier
     public Class<?> getColumnClass( int columnIndex){
         return super.getColumnClass(columnIndex);
     }
 
     public int getRowCount() {
-        return sc.userData().size();
+        numberOfRows = highscores.size();
+        return numberOfRows;
     }
 
     public String getColumnName(int columnIndex){
@@ -49,16 +46,17 @@ public class OpponentTable extends AbstractTableModel {
         }
 
     public Object getValueAt(int rowIndex, int coloumnIndex) {
-        userData().get(rowIndex);
+        highscores.get(rowIndex);
         switch (coloumnIndex) {
             case 0:
-                return userData().get(rowIndex).getEmail();
+                return highscores.get(rowIndex).getUser().getUsername();
             case 1:
-                return userData().get(rowIndex).getUsername();
+                return highscores.get(rowIndex).getScore();
+            case 2:
+                return highscores.get(rowIndex).getGame().getGameId();
         }
         return null;
     }
 }
 
 
-*/

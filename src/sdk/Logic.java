@@ -124,6 +124,7 @@ public class Logic {
             }
             else if(actCom.equals("Highscore")){
                 screen.show(Screen.HIGHSCORE);
+                screen.getHighscore().setHighscoreTableModel(sc.getHighscores());
             }
             else{
                 screen.show(Screen.LOGIN);
