@@ -72,8 +72,9 @@ public class Login extends JPanel {
         return txtUsername.getText();
     }
 
-    public JTextField getTxtTypePassword() {
-        return txtTypePassword;
+    public String getTxtTypePassword() {
+
+        return txtTypePassword.getText();
     }
 
     public JTextField setTxtUsername(){return txtUsername; }

@@ -109,7 +109,7 @@ public class JoinGame extends JPanel {
         return txtJoinMove.getText();
     }
 
-    public void setGame(ArrayList<Game> gameChallenge){
+    public void setGameChallenge(ArrayList<Game> gameChallenge){
         comboJoinBox.removeAllItems();
         for (Game game : gameChallenge){
             comboJoinBox.addItem(game.getName());

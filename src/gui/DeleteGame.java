@@ -1,10 +1,14 @@
 package gui;
 
+import sdk.Game;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 /**
  * Created by Jacky on 16/11/15.
  */
@@ -46,11 +50,29 @@ public class DeleteGame extends JPanel {
         add(comboDeleteBox);
     }
 
+    public JButton getBtnDeleteGame() {
+        return btnDeleteGame;
+    }
+
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
 
     public void addActionDelete(ActionListener delete) {btnDeleteGame.addActionListener(delete);}
+
+    public void setDeleteBox(ArrayList<Game> gameDelete){
+        comboDeleteBox.removeAllItems();
+        for (Game game : gameDelete){
+            comboDeleteBox.addItem(game.getName());
+        }
+    }
+
+    public void removeGame(){
+        comboDeleteBox.removeItemAt(comboDeleteBox.getSelectedIndex());
+    }
+    public String getDeleteBox(){
+        return (String) comboDeleteBox.getSelectedItem();
+    }
 
 
 }

@@ -95,6 +95,8 @@ public JoinGame getBtnJoinGame(){
         return deletegame;
     }
 
+    public DeleteGame getBtnDeleteGame(){return deletegame;}
+
     public Highscore getHighscore(){
         return highscore;
     }

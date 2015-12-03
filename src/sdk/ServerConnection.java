@@ -64,11 +64,6 @@ public class ServerConnection {
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
 
-        /*if (response.getStatus() != 200 && response.getStatus() != 201) {
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatus());*/
-        //}
-
         String output = response.getEntity(String.class);
         return output;
         //System.out.println(output);
@@ -81,11 +76,6 @@ public class ServerConnection {
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
-
-     /*   if (response.getStatus() != 200 && response.getStatus() != 201) {
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatus());
-        }*/
 
         String output = response.getEntity(String.class);
         return output;
@@ -105,6 +95,16 @@ public class ServerConnection {
         usr = new Gson().fromJson(response, User.class);
 
         return usr;
+    }
+
+    public String delete(String path){
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").put(ClientResponse.class);
+
+        String output = response.getEntity(String.class);
+        return output;
     }
 
         public String stringParser(String json)
@@ -127,12 +127,12 @@ public class ServerConnection {
 
         }
 
-    public ArrayList<Game> gameChallenge(int userId){
+    public ArrayList<Game> getGameChallenge(int userId){
         String jsonOfUsers = this.get("games/pending/"+ userId);
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
     }
 
-    public ArrayList <User> userData(){
+    public ArrayList <User> getUserData(){
         String jsonOfUsers = this.get("users/");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
     }
@@ -156,6 +156,16 @@ public class ServerConnection {
        return this.stringParser(jsonOfUsers);
 
         }
+
+    public String deleteGames (int gameId){
+        String jsonOfUser = this.delete("games/"+ gameId);
+        return this.stringParser(jsonOfUser);
+    }
+
+    public ArrayList <Game> getDeleteGame(int userid){
+        String jsonOfUsers = this.get("games/host/" + userid);
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Score>>(){}.getType());
+    }
 
     public ArrayList<Score> getHighscores(){
         String jsonOfUsers = this.get("highscores");
