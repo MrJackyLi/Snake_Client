@@ -66,13 +66,13 @@ public class Login extends JPanel {
         add(btnLogin);
     }
 
-    public JTextField getTxtUsername() {
-        return txtUsername;
+    public String getTxtUsername() {
+        return txtUsername.getText();
     }
 
-    public JTextField getTxtTypePassword() {
+    public String getTxtTypePassword() {
 
-        return txtTypePassword;
+        return String.valueOf(txtTypePassword.getPassword());
     }
 
     public JTextField setTxtUsername(){return txtUsername; }

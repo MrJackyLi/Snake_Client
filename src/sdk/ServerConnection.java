@@ -158,7 +158,7 @@ public class ServerConnection {
     }
 
     public ArrayList <User> getUserData(){
-        String jsonOfUsers = this.get("users");
+        String jsonOfUsers = this.get("users/");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
     }
 

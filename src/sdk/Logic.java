@@ -50,7 +50,7 @@ public class Logic {
     }
 
 
-/*    private boolean isEmpty(String text) {
+    private boolean isEmpty(String text) {
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
 
@@ -59,7 +59,7 @@ public class Logic {
         } else {
             return false;
         }
-    }*/
+    }
 
     /*private class LoginActionListener implements ActionListener {
 
@@ -106,20 +106,50 @@ public class Logic {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Login")) {
+                //String userField = screen.getLogin().getTxtUsername();
+                //String passField = screen.getLogin().getTxtTypePassword();
 
-            currentUser.setUsername(screen.getLogin().getTxtUsername().getText());
-            currentUser.setPassword(screen.getLogin().getTxtTypePassword().getText());
+                currentUser.setUsername(screen.getLogin().getTxtUsername());
+               currentUser.setPassword(screen.getLogin().getTxtTypePassword());
+                //screen.getCreateGame().addUser(sc.getUserData());
+                String message = sc.login(currentUser);
+                if(isEmpty(currentUser.getUsername()) || isEmpty(currentUser.getPassword())){
+                    screen.getLogin().setErrorMessage("Input please");
+                }
+
+            else{
+                screen.getLogin().setErrorMessage("Wrong");
+
+                for(User usr : sc.getUserData()){
+                    System.out.println(usr.getUsername() + " " + usr.getId());
+                    if(currentUser.equals(usr.getUsername()) && currentUser.equals(usr.getPassword()))     {
+                        currentUser = usr;
+                    }
+
+//                    else if(actCom.equals("Menu"))      {
+//                      //  screen.show(Screen.MENU);
+//                    }
+                    else if(message.equals("Login successful")){
+                        screen.show(Screen.MENU);
+                        //screen.getCreateGame().addUser(sc.getUserData());
+
+                    }
 
 
+                }
+                }
             //String actCom = e.getActionCommand();
 
-            String message = sc.login(currentUser);
+       /*     String message = sc.login(currentUser);
             JOptionPane.showMessageDialog(screen, message);
-            String actcom = e.getActionCommand();
-            if (message.equals("Login")) {
-                screen.show(screen.MENU);
-                screen.getCreateGame().addUser(sc.getUserData());
+
+
+
+                screen.getCreateGame().addUser(sc.getUserData());*/
             }
+
 
 
                 // screen.getLogin().clearTextFields();
