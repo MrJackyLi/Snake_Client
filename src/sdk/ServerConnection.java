@@ -100,8 +100,8 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
         return output;
     }
-
-    public User login(String username, String password) {
+/*
+     public User login(String username, String password) {
 
         User usr = new User();
 
@@ -110,18 +110,41 @@ public class ServerConnection {
 
         String jsonOfUser = new Gson().toJson(usr);
 
-        String response = post(jsonOfUser, "login/");
+        String response = post(jsonOfUser, "login");
 
         usr = new Gson().fromJson(response, User.class);
 
         return usr;
+    }*/
+
+    public String login(User user) { //når du kalder metoden, så skal den 'fodres' med et user objekt
+
+        String message = "";
+
+        String data = this.post(new Gson().toJson(user), "login");
+        JSONParser parser = new JSONParser();
+        try {
+            Object object = parser.parse(data);
+            JSONObject jsonobject = (JSONObject) object;
+
+            message = (String)jsonobject.get("message");
+
+            if (jsonobject.get("userid") != null)
+                user.setId((int)(long) jsonobject.get("userid")); //Long tvinger JSON til int
+
+        } catch (ParseException e) {
+            message = "You didn't type anything";
+        }
+        return message;
     }
+
+
 
     public String delete(String path){
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").put(ClientResponse.class);
+        ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
 
         String output = response.getEntity(String.class);
         return output;
@@ -135,7 +158,7 @@ public class ServerConnection {
     }
 
     public ArrayList <User> getUserData(){
-        String jsonOfUsers = this.get("users/");
+        String jsonOfUsers = this.get("users");
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
     }
 

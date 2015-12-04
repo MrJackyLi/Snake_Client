@@ -5,11 +5,12 @@
 
 package sdk;
 
-import com.google.gson.Gson;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import gui.*;
+
+import javax.swing.*;
 
 public class Logic {
 
@@ -49,7 +50,7 @@ public class Logic {
     }
 
 
-    private boolean isEmpty(String text) {
+/*    private boolean isEmpty(String text) {
         //trim sørger for at der ikke er tomme spaces
         text = text.trim();
 
@@ -58,38 +59,74 @@ public class Logic {
         } else {
             return false;
         }
-    }
+    }*/
 
-    private class LoginActionListener implements ActionListener {
+    /*private class LoginActionListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
             String actCom = e.getActionCommand();
             if (actCom.equals("Login")) {
 
-                String userField = screen.getLogin().getTxtUsername();
-                String passField = screen.getLogin().getTxtTypePassword();
+
+                String userField = screen.getLogin().getTxtUsername().getText();
+                String passField = screen.getLogin().getTxtTypePassword().getText();
+
+           *//*     screen.getLogin().getTxtUsername().setText("");
+                screen.getLogin().getTxtTypePassword().setText("");*//*
+
+                currentUser = sc.login(userField, passField);
 
                 if (isEmpty(userField) || isEmpty(passField)) {
                     screen.getLogin().setErrorMessage("Please type username and password!");
                 } else {
                     screen.getLogin().setErrorMessage("Wrong username or password");
-                    currentUser = sc.login(userField, passField);
 
-                    for(User usr: sc.getUserData()) {
-                        System.out.println(usr.getUsername()+" "+usr.getId());
-                        if(usr.getUsername().equals(screen.getLogin().getTxtUsername())){
+
+                    for (User usr : sc.getUserData()) {
+                        System.out.println(usr.getUsername() + " " + usr.getId());
+                        if (usr.getUsername().equals(screen.getLogin().getTxtUsername().getText())&&usr.getPassword().equals(screen.getLogin().getTxtTypePassword().getPassword())) {
                             currentUser = usr;
+
+
                         }
-                    }
-                        if (currentUser != null) {
+                        else if (currentUser != null) {
                             screen.show(Screen.MENU);
+                            screen.getLogin().ClearTextField();
                         }
-                    System.out.println(currentUser.getId());
+                        System.out.println(currentUser.getId());
+                    }
                 }
             }
-        }
-    }
 
+        }
+    }*/
+
+    private class LoginActionListener implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            currentUser.setUsername(screen.getLogin().getTxtUsername().getText());
+            currentUser.setPassword(screen.getLogin().getTxtTypePassword().getText());
+
+
+            //String actCom = e.getActionCommand();
+
+            String message = sc.login(currentUser);
+            JOptionPane.showMessageDialog(screen, message);
+            String actcom = e.getActionCommand();
+            if (message.equals("Login")) {
+                screen.show(screen.MENU);
+                screen.getCreateGame().addUser(sc.getUserData());
+            }
+
+
+                // screen.getLogin().clearTextFields();
+
+            }
+
+    }
 
     private class MenuActionListener implements ActionListener{
 
@@ -114,16 +151,16 @@ public class Logic {
             }
             else if(actCom.equals("Delete Game")){
 
-                deleteGames = sc.getDeleteGame(currentUser.getId());
 
                 screen.show(Screen.DELETEGAME);
+                deleteGames = sc.getDeleteGame(currentUser.getId());
                 screen.getDeleteGame().setDeleteBox(deleteGames);
+
 
             }
             else if(actCom.equals("Highscore")){
                 screen.show(Screen.HIGHSCORE);
                 screen.getHighscore().setHighscoreTableModel(sc.getHighscores());
-                screen.getDeleteGame().removeGame();
             }
             else{
                 screen.show(Screen.LOGIN);
@@ -199,24 +236,36 @@ public class Logic {
         }
     }
 
-    private class DeleteActionListener implements ActionListener{
+    private class DeleteActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String actCom = e.getActionCommand();
-            if(actCom.equals("Delete Game")){
+            if (actCom.equals("Delete Game")) {
             }
+
             else if(e.getSource()==screen.getDeleteGame().getBtnDeleteGame()){
                 Game game = new Game();
             for (Game games : deleteGames) {
                     if (game.getName().equals(screen.getDeleteGame().getDeleteBox())){
                         game = games;
+
+
                     }
                 }
-sc.deleteGames(game.getGameId());
+               String message = sc.deleteGames(game.getGameId());
+                if(message.equals("Gam was deleted")){
+                    screen.getDeleteGame().RemoveGame();
+                }
+
+
+                //sc.deleteGames(game.getGameId());
                 }
 
         }
-    }
+
+
+        }
+
 
 
 

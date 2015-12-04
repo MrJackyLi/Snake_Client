@@ -3,9 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Canvas;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * Created by Jacky on 12/11/15.
@@ -68,18 +66,19 @@ public class Login extends JPanel {
         add(btnLogin);
     }
 
-    public String getTxtUsername() {
-        return txtUsername.getText();
+    public JTextField getTxtUsername() {
+        return txtUsername;
     }
 
-    public String getTxtTypePassword() {
+    public JTextField getTxtTypePassword() {
 
-        return txtTypePassword.getText();
+        return txtTypePassword;
     }
 
     public JTextField setTxtUsername(){return txtUsername; }
 
     public JTextField setTxtTypePassword(){ return txtTypePassword;}
+
     public void setErrorMessage(String errorMessage){
         this.errorMessage.setText(errorMessage);
     }
@@ -88,13 +87,13 @@ public class Login extends JPanel {
         return errorMessage;
     }
 
-    public JButton getBtnLogin()
-    {
-        return btnLogin;
-    }
-
     public void addActionListener(ActionListener l) {
         btnLogin.addActionListener(l);
     }
 
+    public void ClearTextField()
+    {
+        txtTypePassword.setText("");
+        txtUsername.setText("");
+    }
 }

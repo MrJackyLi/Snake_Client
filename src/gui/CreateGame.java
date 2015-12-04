@@ -124,7 +124,7 @@ public class CreateGame extends JPanel {
     public void addActionCreate(ActionListener create) {btnCreateGame.addActionListener(create);}
 
     public void addUser(ArrayList<User>users) {
-        comboCreateBox.removeAllItems();;
+        comboCreateBox.removeAllItems();
         for (User usr : users) {
             comboCreateBox.addItem(usr.getUsername());
         }
@@ -134,6 +134,8 @@ public class CreateGame extends JPanel {
 
         return (String) comboCreateBox.getSelectedItem();
         }
-    }
+
+
+}
 
 

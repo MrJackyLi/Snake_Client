@@ -66,8 +66,9 @@ public class Screen extends JFrame {
         c = (CardLayout) getContentPane().getLayout();
     }
 
-    public void show(String panel) {
+    public boolean show(String panel) {
         c.show(contentPane, panel);
+        return false;
     }
 
     public Login getLogin(){

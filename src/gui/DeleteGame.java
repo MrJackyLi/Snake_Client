@@ -17,7 +17,9 @@ public class DeleteGame extends JPanel {
     private JLabel lblDeleteGame;
     private JButton btnBack;
     private JButton btnDeleteGame;
-    private JComboBox comboDeleteBox;
+   private JComboBox comboDeleteBox;
+
+
     /**
      * Create the panel
      */
@@ -45,7 +47,7 @@ public class DeleteGame extends JPanel {
         btnDeleteGame.setBounds(83, 416, 147, 41);
         add(btnDeleteGame);
 
-        comboDeleteBox = new JComboBox();
+     comboDeleteBox = new JComboBox();
         comboDeleteBox.setBounds(211, 215, 246, 41);
         add(comboDeleteBox);
     }
@@ -54,25 +56,30 @@ public class DeleteGame extends JPanel {
         return btnDeleteGame;
     }
 
+
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
 
     public void addActionDelete(ActionListener delete) {btnDeleteGame.addActionListener(delete);}
 
-    public void setDeleteBox(ArrayList<Game> gameDelete){
+
+
+
+   public void setDeleteBox(ArrayList<Game> gameDelete){
         comboDeleteBox.removeAllItems();
-        for (Game game : gameDelete){
-            comboDeleteBox.addItem(game.getName());
+        for (Game games : gameDelete){
+            comboDeleteBox.addItem(games.getName());
         }
     }
 
-    public void removeGame(){
-        comboDeleteBox.removeItemAt(comboDeleteBox.getSelectedIndex());
-    }
+
     public String getDeleteBox(){
         return (String) comboDeleteBox.getSelectedItem();
     }
 
+    public void RemoveGame(){
+        comboDeleteBox.removeItemAt(comboDeleteBox.getSelectedIndex());
+    }
 
 }
