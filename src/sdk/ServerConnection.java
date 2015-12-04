@@ -42,6 +42,26 @@ public class ServerConnection {
         return port;
     }
 
+    public String stringParser(String json)
+    {
+        JSONParser jsonParser = new JSONParser();
+
+        String message = "";
+        try
+        {
+            Object obj = jsonParser.parse(json);
+            JSONObject jsonObject = (JSONObject) obj;
+
+            message = ((String) jsonObject.get("message"));
+
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        return message;
+
+    }
+
     public String get(String path){
 
         Client client = Client.create();
@@ -107,25 +127,7 @@ public class ServerConnection {
         return output;
     }
 
-        public String stringParser(String json)
-        {
-            JSONParser jsonParser = new JSONParser();
 
-            String message = "";
-            try
-            {
-                Object obj = jsonParser.parse(json);
-                JSONObject jsonObject = (JSONObject) obj;
-
-                message = ((String) jsonObject.get("message"));
-
-            } catch (ParseException e)
-            {
-                e.printStackTrace();
-            }
-            return message;
-
-        }
 
     public ArrayList<Game> getGameChallenge(int userId){
         String jsonOfUsers = this.get("games/pending/"+ userId);
