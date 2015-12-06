@@ -1,6 +1,7 @@
 package gui;
 
 import sdk.Game;
+import sdk.Score;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -64,12 +65,11 @@ public class DeleteGame extends JPanel {
     public void addActionDelete(ActionListener delete) {btnDeleteGame.addActionListener(delete);}
 
 
-
-
-   public void setDeleteBox(ArrayList<Game> gameDelete){
+   public void setDeleteBox(ArrayList<Game> game){
         comboDeleteBox.removeAllItems();
-        for (Game games : gameDelete){
-            comboDeleteBox.addItem(games.getName());
+        for (Game games : game) {
+            comboDeleteBox.addItem(games.getGameId());
+
         }
     }
 

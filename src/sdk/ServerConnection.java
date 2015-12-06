@@ -188,7 +188,7 @@ public class ServerConnection {
     }
 
     public ArrayList <Game> getDeleteGame(int userid){
-        String jsonOfUsers = this.get("games/host/" + userid);
+        String jsonOfUsers = this.get("games/" + userid);
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Score>>(){}.getType());
     }
 
