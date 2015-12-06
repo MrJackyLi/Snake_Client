@@ -189,7 +189,7 @@ public class ServerConnection {
 
     public ArrayList <Game> getDeleteGame(int userid){
         String jsonOfUsers = this.get("games/" + userid);
-        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Score>>(){}.getType());
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
     }
 
     public ArrayList<Score> getHighscores(){
