@@ -1,13 +1,11 @@
 package gui;
 
 import sdk.Game;
-import sdk.Score;
 
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +23,7 @@ public class DeleteGame extends JPanel {
      * Create the panel
      */
 
-    public DeleteGame(){
+    public DeleteGame() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
         setBounds(100, 100, 668, 495);
@@ -63,21 +61,22 @@ public class DeleteGame extends JPanel {
         btnBack.addActionListener(back);
     }
 
-    public void addActionDelete(ActionListener delete) {btnDeleteGame.addActionListener(delete);}
+    public void addActionDelete(ActionListener delete) {
+        btnDeleteGame.addActionListener(delete);
+    }
 
+    public String getDeleteBox() {
+        return (String) comboDeleteBox.getSelectedItem();
+    }
 
-   public void setDeleteBox(ArrayList<Game> game){
+    public void setDeleteBox(ArrayList<Game> game) {
         comboDeleteBox.removeAllItems();
         for (Game games : game) {
             comboDeleteBox.addItem(games.getName());
         }
     }
 
-    public String getDeleteBox(){
-        return (String) comboDeleteBox.getSelectedItem();
-    }
-
-    public void RemoveGame(){
+    public void RemoveGame() {
         comboDeleteBox.removeItemAt(comboDeleteBox.getSelectedIndex());
     }
 

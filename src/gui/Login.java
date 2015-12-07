@@ -81,7 +81,7 @@ public class Login extends JPanel {
         return String.valueOf(txtTypePassword.getPassword());
     }
 
-    public void setErrorMessage(String errorMessage){
+    public void setErrorMessage(String errorMessage) {
         this.errorMessage.setText(errorMessage);
     }
 
@@ -89,8 +89,7 @@ public class Login extends JPanel {
         btnLogin.addActionListener(l);
     }
 
-    public void ClearTextFieldLogin()
-    {
+    public void ClearTextFieldLogin() {
         txtTypePassword.setText("");
         txtUsername.setText("");
     }

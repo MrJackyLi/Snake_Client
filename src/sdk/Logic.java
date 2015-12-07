@@ -8,6 +8,7 @@ package sdk;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 import gui.*;
 
 public class Logic {
@@ -38,7 +39,7 @@ public class Logic {
         screen.getCreateGame().actionPerformedBack(
                 new CreateActionListenerBack());
         screen.getBtnCreateGame().addActionCreate(
-                new CreateActionListener() );
+                new CreateActionListener());
         screen.getDeleteGame().actionPerformedBack(
                 new DeleteActionListenerBack());
         screen.getBtnDeleteGame().addActionDelete(
@@ -67,66 +68,55 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-                currentUser.setUsername(screen.getLogin().getTxtUsername());
-                currentUser.setPassword(screen.getLogin().getTxtTypePassword());
+            currentUser.setUsername(screen.getLogin().getTxtUsername());
+            currentUser.setPassword(screen.getLogin().getTxtTypePassword());
 
-                String message = sc.login(currentUser);
-                if(isEmpty(currentUser.getUsername()) || isEmpty(currentUser.getPassword())){
-                    screen.getLogin().setErrorMessage("Please type username/password!");
-                }
-
-            else{
+            String message = sc.login(currentUser);
+            if (isEmpty(currentUser.getUsername()) || isEmpty(currentUser.getPassword())) {
+                screen.getLogin().setErrorMessage("Please type username/password!");
+            } else {
                 screen.getLogin().setErrorMessage("Wrong username/password!");
 
-                for(User usr : sc.getUserData()){
+                for (User usr : sc.getUserData()) {
                     System.out.println(usr.getUsername() + " " + usr.getId());
-                    if(currentUser.equals(usr.getUsername()) && currentUser.equals(usr.getPassword()))     {
+                    if (currentUser.equals(usr.getUsername()) && currentUser.equals(usr.getPassword())) {
                         currentUser = usr;
-                    }
-
-                    else if(message.equals("Login successful")){
+                    } else if (message.equals("Login successful")) {
                         screen.show(Screen.MENU);
                         screen.getMenu().setMenuMessage("Welcome " + currentUser.getUsername() + " please choose an option!");
 
                     }
                 }
-                }
-
             }
+
+        }
 
     }
 
-    private class MenuActionListener implements ActionListener{
+    private class MenuActionListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             String actCom = e.getActionCommand();
-            if(actCom.equals("Join Game")) {
+            if (actCom.equals("Join Game")) {
                 screen.show(Screen.JOINGAME);
                 screen.getJoinGame().ClearTextfieldJoin();
                 gameChallenge = sc.getGameChallenge(currentUser.getId());
                 for (Game game : gameChallenge)
                     game.getGameId();
-                    screen.getJoinGame().setGameChallenge(gameChallenge);
-                System.out.println(gameChallenge);
-
-            }
-            else if(actCom.equals("Create Game")){
+                screen.getJoinGame().setGameChallenge(gameChallenge);
+            } else if (actCom.equals("Create Game")) {
                 screen.show(Screen.CREATEGAME);
                 screen.getCreateGame().ClearTextFieldCreate();
                 screen.getCreateGame().addUser(sc.getUserData());
-            }
-            else if(actCom.equals("Delete Game")){
+            } else if (actCom.equals("Delete Game")) {
                 screen.show(Screen.DELETEGAME);
                 deleteGames = sc.getDeleteGame(currentUser.getId());
                 screen.getDeleteGame().setDeleteBox(deleteGames);
-                System.out.println(deleteGames);
 
-            }
-            else if(actCom.equals("Highscore")){
+            } else if (actCom.equals("Highscore")) {
                 screen.show(Screen.HIGHSCORE);
                 screen.getHighscore().setHighscoreTableModel(sc.getHighscores());
-            }
-            else{
+            } else {
                 screen.show(Screen.LOGIN);
                 screen.getLogin().setErrorMessage("");
                 screen.getLogin().ClearTextFieldLogin();
@@ -134,7 +124,7 @@ public class Logic {
         }
     }
 
-    private class JoinActionListener implements ActionListener{
+    private class JoinActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -156,9 +146,11 @@ public class Logic {
 
                 }
                 screen.show(Screen.MENU);
-                screen.getMenu().setMenuMessage("You have joined a game and you: "+ gameStart.getWinner().equals("W"));
-                        //gameStart.getWinner().equals("winner/"));
-        }}}
+                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().equals("W"));
+
+            }
+        }
+    }
 
     private class CreateActionListener implements ActionListener {
         @Override
@@ -178,18 +170,17 @@ public class Logic {
             for (User usr : sc.getUserData()) {
                 if (usr.getUsername().equals(screen.getCreateGame().getUser())) {
                     opponent.setId(usr.getId());
-                    System.out.println(usr.getId());
                 }
             }
             sc.createGame(game);
 
-           if (currentUser != null) {
+            if (currentUser != null) {
 
                 screen.show(Screen.MENU);
-               screen.getMenu().setMenuMessage("The game "+ screen.getCreateGame().getTxtFGameName() +" is created ");
+                screen.getMenu().setMenuMessage("The game " + screen.getCreateGame().getTxtFGameName() + " is created ");
             }
 
-           // screen.setContentPane(Screen.MENU);
+            // screen.setContentPane(Screen.MENU);
         }
     }
 
@@ -198,34 +189,34 @@ public class Logic {
         public void actionPerformed(ActionEvent e) {
             Game game = new Game();
 
-    for (Game games : deleteGames) {
-        screen.getDeleteGame().getDeleteBox();
-        if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
-            game = games;
+            for (Game games : deleteGames) {
+                screen.getDeleteGame().getDeleteBox();
+                if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
+                    game = games;
+
+                }
+            }
+            String message = sc.deleteGames(game.getGameId());
+            if (message.equals("Game was deleted")) {
+                screen.getDeleteGame().RemoveGame();
+                screen.show(Screen.MENU);
+                screen.getMenu().setMenuMessage("You have deleted the game: " + game.getName());
+            }
 
         }
     }
-    String message = sc.deleteGames(game.getGameId());
-    if (message.equals("Game was deleted")) {
-        screen.getDeleteGame().RemoveGame();
-        screen.show(Screen.MENU);
-        screen.getMenu().setMenuMessage("You have deleted the game: " + game.getName());
-    }
 
-        }
-        }
+    private class JoinActionListenerBack implements ActionListener {
 
-    private class JoinActionListenerBack implements ActionListener{
-
-        public void actionPerformed(ActionEvent back){
+        public void actionPerformed(ActionEvent back) {
             screen.show(Screen.MENU);
         }
 
     }
 
-    private class CreateActionListenerBack implements ActionListener{
+    private class CreateActionListenerBack implements ActionListener {
 
-        public void actionPerformed(ActionEvent back){
+        public void actionPerformed(ActionEvent back) {
             screen.show(Screen.MENU);
         }
     }
@@ -237,7 +228,7 @@ public class Logic {
         }
     }
 
-    private class HighscoreActionListenerBack implements ActionListener{
+    private class HighscoreActionListenerBack implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             screen.show(Screen.MENU);

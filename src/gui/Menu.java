@@ -1,12 +1,9 @@
 package gui;
 
-import sdk.Logic;
-
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * Created by Jacky on 12/11/15.
@@ -76,11 +73,11 @@ public class Menu extends JPanel {
 
     }
 
-    public void setMenuMessage(String menuMessage){
+    public void setMenuMessage(String menuMessage) {
         this.menuMessage.setText(menuMessage);
     }
 
-    public void addACList(ActionListener ac){
+    public void addACList(ActionListener ac) {
         btnJoinGame.addActionListener(ac);
         btnCreateGame.addActionListener(ac);
         btnDeleteGame.addActionListener(ac);

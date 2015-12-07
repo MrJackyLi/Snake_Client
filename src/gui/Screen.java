@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 
 
@@ -29,8 +28,6 @@ public class Screen extends JFrame {
     private Highscore highscore;
 
 
-
-
     private CardLayout c;
 
     /**
@@ -45,22 +42,22 @@ public class Screen extends JFrame {
         contentPane.setLayout(new CardLayout(0, 0));
 
         login = new Login();
-            contentPane.add(login, LOGIN);
+        contentPane.add(login, LOGIN);
 
         menu = new Menu();
-            contentPane.add(menu, MENU);
+        contentPane.add(menu, MENU);
 
         joingame = new JoinGame();
-            contentPane.add(joingame, JOINGAME);
+        contentPane.add(joingame, JOINGAME);
 
         creategame = new CreateGame();
-            contentPane.add(creategame, CREATEGAME);
+        contentPane.add(creategame, CREATEGAME);
 
         deletegame = new DeleteGame();
-            contentPane.add(deletegame, DELETEGAME);
+        contentPane.add(deletegame, DELETEGAME);
 
         highscore = new Highscore();
-            contentPane.add(highscore, HIGHSCORE);
+        contentPane.add(highscore, HIGHSCORE);
 
         c = (CardLayout) getContentPane().getLayout();
     }
@@ -70,7 +67,7 @@ public class Screen extends JFrame {
         return false;
     }
 
-    public Login getLogin(){
+    public Login getLogin() {
         return login;
     }
 
@@ -81,23 +78,28 @@ public class Screen extends JFrame {
     public JoinGame getJoinGame() {
         return joingame;
     }
-public JoinGame getBtnJoinGame(){
-    return joingame;
-}
 
-    public CreateGame getCreateGame(){
+    public JoinGame getBtnJoinGame() {
+        return joingame;
+    }
+
+    public CreateGame getCreateGame() {
         return creategame;
     }
 
-    public CreateGame getBtnCreateGame(){ return creategame; }
+    public CreateGame getBtnCreateGame() {
+        return creategame;
+    }
 
-    public DeleteGame getDeleteGame(){
+    public DeleteGame getDeleteGame() {
         return deletegame;
     }
 
-    public DeleteGame getBtnDeleteGame(){return deletegame;}
+    public DeleteGame getBtnDeleteGame() {
+        return deletegame;
+    }
 
-    public Highscore getHighscore(){
+    public Highscore getHighscore() {
         return highscore;
     }
 

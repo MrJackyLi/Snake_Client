@@ -3,10 +3,8 @@ package gui;
 import sdk.Score;
 
 import javax.swing.*;
-import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +18,7 @@ public class Highscore extends JPanel {
     /**
      * Create the panel.
      */
-    public Highscore(){
+    public Highscore() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
         setBounds(100, 100, 668, 495);
@@ -31,7 +29,6 @@ public class Highscore extends JPanel {
         btnBack.setForeground(Color.cyan);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
-//highscoretable inside the scrollpane
 
         highscoreTable = new JTable();
         JScrollPane scrollPane = new JScrollPane(highscoreTable);
@@ -45,12 +42,12 @@ public class Highscore extends JPanel {
 
     }
 
-    public void setHighscoreTableModel(ArrayList<Score> highscores){
+    public void setHighscoreTableModel(ArrayList<Score> highscores) {
         HighscoreTable highscoreTableModel = new HighscoreTable(highscores);
         highscoreTable.setModel(highscoreTableModel);
     }
 
-        public void actionPerformedBack(ActionListener back) {
+    public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
 }

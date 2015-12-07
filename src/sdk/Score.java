@@ -1,7 +1,6 @@
 package sdk;
 
 
-
 // Creates class Score
 public class Score {
 
@@ -14,8 +13,7 @@ public class Score {
 
     //TODO: Kan slettes?! Bruges ikke i wrapper længere.
     // Creates constructor
-    public Score(int id, Gamer user, Game game, Gamer opponent, int score)
-    {
+    public Score(int id, Gamer user, Game game, Gamer opponent, int score) {
         this.id = id;
         this.user = user;
         this.game = game;
@@ -23,13 +21,18 @@ public class Score {
         this.score = score;
     }
 
-    public Score(){}
+    public Score() {
+    }
 
     // Creates get method which returns the highScore
 
-    public Gamer getOpponent() { return opponent; }
+    public Gamer getOpponent() {
+        return opponent;
+    }
 
-    public void setOpponent(Gamer opponent) { this.opponent = opponent;  }
+    public void setOpponent(Gamer opponent) {
+        this.opponent = opponent;
+    }
 
     public int getId() {
         return id;

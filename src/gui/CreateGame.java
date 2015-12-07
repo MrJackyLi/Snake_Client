@@ -1,6 +1,7 @@
 package gui;
 
 import sdk.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -26,7 +27,7 @@ public class CreateGame extends JPanel {
     /**
      * Create the panel.
      */
-    public CreateGame(){
+    public CreateGame() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
         setBounds(100, 100, 668, 495);
@@ -90,7 +91,6 @@ public class CreateGame extends JPanel {
     }
 
 
-
     public String getTxtFGameName() {
         return txtFGameName.getText();
     }
@@ -103,26 +103,25 @@ public class CreateGame extends JPanel {
         btnBack.addActionListener(back);
     }
 
-    public void addActionCreate(ActionListener create) {btnCreateGame.addActionListener(create);}
+    public void addActionCreate(ActionListener create) {
+        btnCreateGame.addActionListener(create);
+    }
 
-    public void addUser(ArrayList<User>users) {
+    public void addUser(ArrayList<User> users) {
         comboCreateBox.removeAllItems();
         for (User usr : users) {
             comboCreateBox.addItem(usr.getUsername());
         }
     }
 
-    public String getUser(){
+    public String getUser() {
 
         return (String) comboCreateBox.getSelectedItem();
-        }
+    }
 
-    public void ClearTextFieldCreate(){
+    public void ClearTextFieldCreate() {
         txtFGameName.setText("");
         txtFMovements.setText("");
     }
 
-
 }
-
-

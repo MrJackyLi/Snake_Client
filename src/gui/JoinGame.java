@@ -1,12 +1,13 @@
 package gui;
 
-        import sdk.Game;
-        import java.awt.Color;
-        import java.awt.Font;
-        import java.awt.event.ActionEvent;
-        import java.awt.event.ActionListener;
-        import java.util.ArrayList;
-        import javax.swing.*;
+import sdk.Game;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  * Created by Jacky on 16/11/15.
@@ -20,7 +21,6 @@ public class JoinGame extends JPanel {
     private JLabel lblSelectGame;
     private JComboBox comboJoinBox;
     private JLabel backGround;
-
 
 
     /**
@@ -77,26 +77,22 @@ public class JoinGame extends JPanel {
         add(backGround);
     }
 
-    public void actionListenerJoin(ActionListener Join){
+    public void actionListenerJoin(ActionListener Join) {
         btnJoinGame.addActionListener(Join);
-    }
-
-    public JButton getBtnJoinGame() {
-        return btnJoinGame;
     }
 
     public String getTxtJoinMove() {
         return txtJoinMove.getText();
     }
 
-    public void setGameChallenge(ArrayList<Game> gameChallenge){
+    public void setGameChallenge(ArrayList<Game> gameChallenge) {
         comboJoinBox.removeAllItems();
-        for (Game game : gameChallenge){
+        for (Game game : gameChallenge) {
             comboJoinBox.addItem(game.getName());
         }
     }
-    public String getChallenge ()
-    {
+
+    public String getChallenge() {
         return (String) comboJoinBox.getSelectedItem();
     }
 
@@ -104,7 +100,7 @@ public class JoinGame extends JPanel {
         btnBack.addActionListener(back);
     }
 
-    public void ClearTextfieldJoin(){
+    public void ClearTextfieldJoin() {
         txtJoinMove.setText("");
     }
 }
