@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * Created by Jacky on 16/11/15.
  */
 public class Highscore extends JPanel {
-    private JLabel lblHighscore;
     private JButton btnBack;
     private JTable highscoreTable;
+    private JLabel backGround;
 
     /**
      * Create the panel.
@@ -23,24 +23,25 @@ public class Highscore extends JPanel {
     public Highscore(){
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
-        setBounds(100, 100, 668, 395);
+        setBounds(100, 100, 668, 495);
         setLayout(null);
 
-        lblHighscore = new JLabel("HIGHSCORE");
-        lblHighscore.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblHighscore.setBounds(255, 55, 158, 41);
-        add(lblHighscore);
-
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setBounds(260, 354, 147, 41);
+        btnBack.setBounds(247, 389, 174, 70);
+        btnBack.setForeground(Color.cyan);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 //highscoretable inside the scrollpane
 
         highscoreTable = new JTable();
         JScrollPane scrollPane = new JScrollPane(highscoreTable);
-        scrollPane.setBounds(126, 95, 424, 199);
+        scrollPane.setBounds(122, 139, 424, 199);
         add(scrollPane);
+
+        backGround = new JLabel("");
+        backGround.setIcon(new ImageIcon(Login.class.getResource("snakehigh.jpg")));
+        backGround.setBounds(0, 0, 668, 495);
+        add(backGround);
 
     }
 

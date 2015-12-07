@@ -1,7 +1,6 @@
 package gui;
 
 import sdk.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -12,19 +11,15 @@ import java.util.ArrayList;
  */
 
 public class CreateGame extends JPanel {
-    private JLabel lblCreateGame;
     private JButton btnBack;
     private JButton btnCreateGame;
     private JTextField txtFGameName;
     private JTextField txtFMovements;
     private JLabel lblActionsA;
-    private JLabel lblWUp;
-    private JLabel lblsDown;
-    private JLabel lblaLeft;
-    private JLabel lbldRight;
     private JLabel lblGameName;
     private JLabel lblTypeMovements;
     private JComboBox comboCreateBox;
+    private JLabel backGround;
     private JLabel lblChooseOpponent;
 
 
@@ -37,74 +32,63 @@ public class CreateGame extends JPanel {
         setBounds(100, 100, 668, 495);
         setLayout(null);
 
-        lblCreateGame = new JLabel("CREATE GAME");
-        lblCreateGame.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblCreateGame.setBounds(240, 29, 186, 41);
-        add(lblCreateGame);
-
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setForeground(Color.RED);
-        btnBack.setBounds(406, 416, 147, 41);
+        btnBack.setForeground(Color.CYAN);
+        btnBack.setBounds(406, 416, 174, 70);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
         btnCreateGame = new JButton("CREATE GAME");
-        btnCreateGame.setForeground(Color.GREEN);
+        btnCreateGame.setForeground(Color.CYAN);
         btnCreateGame.setActionCommand("CREATE GAME");
-        btnCreateGame.setBounds(83, 416, 147, 41);
+        btnCreateGame.setBounds(83, 416, 174, 70);
         add(btnCreateGame);
 
         txtFGameName = new JTextField();
-        txtFGameName.setBounds(241, 121, 186, 41);
+        txtFGameName.setBounds(83, 162, 186, 41);
         add(txtFGameName);
         txtFGameName.setColumns(10);
 
         txtFMovements = new JTextField();
         txtFMovements.setColumns(10);
-        txtFMovements.setBounds(360, 301, 245, 81);
+        txtFMovements.setBounds(376, 271, 245, 35);
         add(txtFMovements);
 
         lblGameName = new JLabel("Game Name:");
-        lblGameName.setBounds(288, 93, 92, 16);
+        lblGameName.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblGameName.setForeground(Color.CYAN);
+        lblGameName.setBounds(130, 145, 92, 16);
         add(lblGameName);
 
         lblTypeMovements = new JLabel("Type Movements:");
-        lblTypeMovements.setBounds(421, 284, 117, 16);
+        lblTypeMovements.setForeground(Color.CYAN);
+        lblTypeMovements.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblTypeMovements.setBounds(439, 243, 132, 16);
         add(lblTypeMovements);
 
         lblActionsA = new JLabel("Actions: ");
+        lblActionsA.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblActionsA.setForeground(Color.CYAN);
         lblActionsA.setHorizontalAlignment(SwingConstants.CENTER);
-        lblActionsA.setBounds(127, 284, 94, 16);
+        lblActionsA.setBounds(117, 255, 94, 16);
         add(lblActionsA);
 
-        lblWUp = new JLabel("\"W\": UP");
-        lblWUp.setHorizontalAlignment(SwingConstants.CENTER);
-        lblWUp.setBounds(138, 310, 61, 16);
-        add(lblWUp);
-
-        lblsDown = new JLabel("\"S\": DOWN");
-        lblsDown.setHorizontalAlignment(SwingConstants.CENTER);
-        lblsDown.setBounds(132, 376, 74, 16);
-        add(lblsDown);
-
-        lblaLeft = new JLabel("\"A\": LEFT");
-        lblaLeft.setHorizontalAlignment(SwingConstants.CENTER);
-        lblaLeft.setBounds(48, 337, 74, 16);
-        add(lblaLeft);
-
-        lbldRight = new JLabel("\"D\": RIGHT");
-        lbldRight.setHorizontalAlignment(SwingConstants.CENTER);
-        lbldRight.setBounds(225, 335, 74, 21);
-        add(lbldRight);
-
         lblChooseOpponent = new JLabel("Choose opponent");
-        lblChooseOpponent.setBounds(275, 188, 117, 16);
+        lblChooseOpponent.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblChooseOpponent.setForeground(Color.CYAN);
+        lblChooseOpponent.setBounds(431, 145, 132, 16);
         add(lblChooseOpponent);
 
         comboCreateBox = new JComboBox();
-        comboCreateBox.setBounds(211, 215, 246, 41);
+        comboCreateBox.setBounds(375, 160, 246, 41);
         add(comboCreateBox);
+
+        backGround = new JLabel("");
+        backGround.setIcon(new ImageIcon(Login.class.getResource("snakecreate.jpg")));
+        backGround.setBounds(0, 0, 668, 495);
+        add(backGround);
     }
+
 
 
     public String getTxtFGameName() {

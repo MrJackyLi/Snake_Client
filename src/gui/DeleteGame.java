@@ -14,11 +14,11 @@ import java.util.ArrayList;
  * Created by Jacky on 16/11/15.
  */
 public class DeleteGame extends JPanel {
-
-    private JLabel lblDeleteGame;
+    private JLabel backGround;
     private JButton btnBack;
     private JButton btnDeleteGame;
-   private JComboBox comboDeleteBox;
+    private JComboBox comboDeleteBox;
+    private JLabel lblChooseAGame;
 
 
     /**
@@ -28,29 +28,35 @@ public class DeleteGame extends JPanel {
     public DeleteGame(){
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
-        setBounds(100, 100, 668, 395);
+        setBounds(100, 100, 668, 495);
         setLayout(null);
 
-        lblDeleteGame = new JLabel("DELETE GAME");
-        lblDeleteGame.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblDeleteGame.setBounds(243, 55, 182, 41);
-        add(lblDeleteGame);
+        lblChooseAGame = new JLabel("Choose a game to delete: ");
+        lblChooseAGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+        lblChooseAGame.setForeground(Color.CYAN);
+        lblChooseAGame.setBounds(232, 150, 204, 26);
+        add(lblChooseAGame);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setForeground(Color.RED);
-        btnBack.setBounds(406, 416, 147, 41);
+        btnBack.setForeground(Color.CYAN);
+        btnBack.setBounds(406, 416, 174, 70);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
         btnDeleteGame = new JButton("DELETE GAME");
-        btnDeleteGame.setForeground(Color.GREEN);
+        btnDeleteGame.setForeground(Color.CYAN);
         btnDeleteGame.setActionCommand("DELETE GAME");
-        btnDeleteGame.setBounds(83, 416, 147, 41);
+        btnDeleteGame.setBounds(85, 416, 174, 70);
         add(btnDeleteGame);
 
-     comboDeleteBox = new JComboBox();
+        comboDeleteBox = new JComboBox();
         comboDeleteBox.setBounds(211, 215, 246, 41);
         add(comboDeleteBox);
+
+        backGround = new JLabel("");
+        backGround.setIcon(new ImageIcon(Login.class.getResource("snakedelete.jpg")));
+        backGround.setBounds(0, 0, 668, 495);
+        add(backGround);
     }
 
     public void actionPerformedBack(ActionListener back) {

@@ -29,12 +29,12 @@ public class Login extends JPanel {
 
         lblUser = new JLabel("USERNAME:");
         lblUser.setForeground(Color.CYAN);
-        lblUser.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        lblUser.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         lblUser.setBounds(66, 406, 120, 16);
         add(lblUser);
 
         lblPass = new JLabel("PASSWORD:");
-        lblPass.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        lblPass.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         lblPass.setForeground(Color.CYAN);
         lblPass.setBounds(271, 406, 120, 16);
         add(lblPass);

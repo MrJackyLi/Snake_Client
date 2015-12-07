@@ -26,42 +26,46 @@ public class Menu extends JPanel {
     public Menu() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
-        setBounds(100, 100, 668, 505);
+        setBounds(100, 100, 668, 495);
         setLayout(null);
 
         menuMessage = new JLabel("");
-        menuMessage.setForeground(Color.BLACK);
+        menuMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        menuMessage.setForeground(Color.CYAN);
         menuMessage.setHorizontalAlignment(SwingConstants.CENTER);
-        menuMessage.setBounds(53, 100, 566, 16);
+        menuMessage.setBounds(51, 119, 566, 42);
         add(menuMessage);
 
         btnJoinGame = new JButton("Join Game");
         btnJoinGame.setForeground(Color.BLACK);
-        btnJoinGame.setBounds(53, 128, 243, 70);
+        btnJoinGame.setBounds(397, 196, 174, 70);
         btnJoinGame.setActionCommand("Join Game");
         add(btnJoinGame);
 
         btnCreateGame = new JButton("Create Game");
+        btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         btnCreateGame.setForeground(Color.BLACK);
-        btnCreateGame.setBounds(53, 213, 243, 70);
+        btnCreateGame.setBounds(96, 196, 174, 70);
         btnCreateGame.setActionCommand("Create Game");
         add(btnCreateGame);
 
         btnDeleteGame = new JButton("Delete Game");
         btnDeleteGame.setForeground(Color.BLACK);
-        btnDeleteGame.setBounds(376, 213, 243, 70);
+        btnDeleteGame.setBounds(96, 290, 174, 70);
         btnDeleteGame.setActionCommand("Delete Game");
         add(btnDeleteGame);
 
         btnGetHighscore = new JButton("Get Highscore");
         btnGetHighscore.setForeground(Color.BLACK);
-        btnGetHighscore.setBounds(376, 128, 243, 70);
+        btnGetHighscore.setBounds(397, 290, 174, 70);
         btnGetHighscore.setActionCommand("Highscore");
         add(btnGetHighscore);
 
         btnLogOut = new JButton("Log Out");
+        btnLogOut.setBackground(Color.WHITE);
+        btnLogOut.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         btnLogOut.setForeground(Color.BLACK);
-        btnLogOut.setBounds(212, 302, 243, 70);
+        btnLogOut.setBounds(247, 383, 174, 70);
         btnLogOut.setActionCommand("Log Out");
         add(btnLogOut);
 
