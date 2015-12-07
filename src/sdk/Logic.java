@@ -18,6 +18,7 @@ public class Logic {
     private ArrayList<Game> gameChallenge;
     private ArrayList<Game> deleteGames;
 
+
     public Logic() {
         screen = new Screen();
         screen.setVisible(true);
@@ -85,11 +86,9 @@ public class Logic {
 
                     else if(message.equals("Login successful")){
                         screen.show(Screen.MENU);
-
+                        screen.getMenu().setMenuMessage("Welcome " + currentUser.getUsername() + " please choose an option!");
 
                     }
-
-
                 }
                 }
 
@@ -103,6 +102,7 @@ public class Logic {
             String actCom = e.getActionCommand();
             if(actCom.equals("Join Game")) {
                 screen.show(Screen.JOINGAME);
+                screen.getJoinGame().ClearTextfieldJoin();
                 gameChallenge = sc.getGameChallenge(currentUser.getId());
                 for (Game game : gameChallenge)
                     game.getGameId();
@@ -112,15 +112,14 @@ public class Logic {
             }
             else if(actCom.equals("Create Game")){
                 screen.show(Screen.CREATEGAME);
+                screen.getCreateGame().ClearTextFieldCreate();
                 screen.getCreateGame().addUser(sc.getUserData());
             }
             else if(actCom.equals("Delete Game")){
                 screen.show(Screen.DELETEGAME);
                 deleteGames = sc.getDeleteGame(currentUser.getId());
                 screen.getDeleteGame().setDeleteBox(deleteGames);
-
                 System.out.println(deleteGames);
-
 
             }
             else if(actCom.equals("Highscore")){
@@ -130,6 +129,7 @@ public class Logic {
             else{
                 screen.show(Screen.LOGIN);
                 screen.getLogin().setErrorMessage("");
+                screen.getLogin().ClearTextFieldLogin();
             }
         }
     }
@@ -153,9 +153,12 @@ public class Logic {
             for (User usr : sc.getUserData()) {
                 if (usr.getId() == gameStart.getWinner().getId()) {
                     gameStart.getWinner().setUsername(usr.getUsername());
+
                 }
-            }
-        }}
+                screen.show(Screen.MENU);
+                screen.getMenu().setMenuMessage("You have joined a game and you: "+ gameStart.getWinner().equals("W"));
+                        //gameStart.getWinner().equals("winner/"));
+        }}}
 
     private class CreateActionListener implements ActionListener {
         @Override
@@ -180,10 +183,13 @@ public class Logic {
             }
             sc.createGame(game);
 
-            if (currentUser != null) {
+           if (currentUser != null) {
 
                 screen.show(Screen.MENU);
+               screen.getMenu().setMenuMessage("The game "+ screen.getCreateGame().getTxtFGameName() +" is created ");
             }
+
+           // screen.setContentPane(Screen.MENU);
         }
     }
 
@@ -192,22 +198,20 @@ public class Logic {
         public void actionPerformed(ActionEvent e) {
             Game game = new Game();
 
+    for (Game games : deleteGames) {
+        screen.getDeleteGame().getDeleteBox();
+        if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
+            game = games;
 
-            for (Game games : deleteGames) {
+        }
+    }
+    String message = sc.deleteGames(game.getGameId());
+    if (message.equals("Game was deleted")) {
+        screen.getDeleteGame().RemoveGame();
+        screen.show(Screen.MENU);
+        screen.getMenu().setMenuMessage("You have deleted the game: " + game.getName());
+    }
 
-                //if(screen.getDeleteGame().getDeleteBox().equals(games.getGameId())){
-
-
-                if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
-                    game = games;
-
-                }
-
-                String message = sc.deleteGames(game.getGameId());
-                if (message.equals("Game was deleted")) {
-                    screen.getDeleteGame().RemoveGame();
-                }
-            }
         }
         }
 

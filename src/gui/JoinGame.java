@@ -123,4 +123,8 @@ public class JoinGame extends JPanel {
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
+
+    public void ClearTextfieldJoin(){
+        txtJoinMove.setText("");
+    }
 }

@@ -12,9 +12,9 @@ public class Login extends JPanel {
     private JTextField txtUsername;
     private JPasswordField txtTypePassword;
     private JLabel errorMessage;
-    private JLabel loginLabel;
     private JLabel lblUser;
     private JLabel lblPass;
+    private JLabel backGround;
     private JButton btnLogin;
 
     /**
@@ -23,47 +23,53 @@ public class Login extends JPanel {
     public Login() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
-        setBounds(100, 100, 668, 395);
+        setBounds(100, 100, 668, 495);
         setLayout(null);
 
-        loginLabel = new JLabel("SNAKE GAME");
-        loginLabel.setBounds(245, 37, 177, 41);
-        loginLabel.setForeground(Color.BLACK);
-        loginLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-        loginLabel.setBackground(Color.BLACK);
-        add(loginLabel);
 
         lblUser = new JLabel("USERNAME:");
-        lblUser.setBounds(161, 169, 72, 16);
+        lblUser.setForeground(Color.CYAN);
+        lblUser.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        lblUser.setBounds(66, 406, 120, 16);
         add(lblUser);
 
         lblPass = new JLabel("PASSWORD:");
-        lblPass.setBounds(163, 242, 84, 16);
+        lblPass.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        lblPass.setForeground(Color.CYAN);
+        lblPass.setBounds(271, 406, 120, 16);
         add(lblPass);
 
         txtUsername = new JTextField();
         txtUsername.setToolTipText("Type your username here!");
-        txtUsername.setBounds(245, 153, 177, 48);
+        txtUsername.setBounds(32, 424, 177, 48);
         add(txtUsername);
         txtUsername.setColumns(10);
 
         txtTypePassword = new JPasswordField();
         txtTypePassword.setToolTipText("Type your password here!");
         txtTypePassword.setColumns(10);
-        txtTypePassword.setBounds(245, 226, 177, 48);
+        txtTypePassword.setBounds(239, 424, 177, 48);
         add(txtTypePassword);
 
         errorMessage = new JLabel("");
-        errorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        errorMessage.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
         errorMessage.setHorizontalAlignment(SwingConstants.CENTER);
         errorMessage.setForeground(Color.red);
-        errorMessage.setBounds(175, 90, 318, 51);
+        errorMessage.setBounds(18, 368, 410, 35);
         add(errorMessage);
 
-        btnLogin = new JButton("Login");
-        btnLogin.setBounds(260, 305, 147, 41);
+        btnLogin = new JButton("LOGIN");
+        btnLogin.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        btnLogin.setBackground(Color.WHITE);
+        btnLogin.setForeground(Color.BLACK);
+        btnLogin.setBounds(471, 411, 120, 70);
         btnLogin.setActionCommand("Login");
         add(btnLogin);
+
+        backGround = new JLabel("");
+        backGround.setIcon(new ImageIcon(Login.class.getResource("snake.jpg")));
+        backGround.setBounds(0, 0, 668, 495);
+        add(backGround);
     }
 
     public String getTxtUsername() {
@@ -75,23 +81,15 @@ public class Login extends JPanel {
         return String.valueOf(txtTypePassword.getPassword());
     }
 
-    public JTextField setTxtUsername(){return txtUsername; }
-
-    public JTextField setTxtTypePassword(){ return txtTypePassword;}
-
     public void setErrorMessage(String errorMessage){
         this.errorMessage.setText(errorMessage);
-    }
-
-    public JLabel getErrorMessage(){
-        return errorMessage;
     }
 
     public void addActionListener(ActionListener l) {
         btnLogin.addActionListener(l);
     }
 
-    public void ClearTextField()
+    public void ClearTextFieldLogin()
     {
         txtTypePassword.setText("");
         txtUsername.setText("");

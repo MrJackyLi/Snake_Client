@@ -2,11 +2,9 @@ package gui;
 
 import sdk.Logic;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -21,33 +19,21 @@ public class Menu extends JPanel {
     private JButton btnDeleteGame;
     private JButton btnGetHighscore;
     private JButton btnLogOut;
-    private JLabel lblSnake;
-    private JLabel menuLabel;
-    private JLabel lblHiWelcome;
+    private JLabel backGround;
+    private JLabel menuMessage;
 
 
     public Menu() {
         setForeground(Color.GRAY);
         setBackground(Color.LIGHT_GRAY);
-        setBounds(100, 100, 668, 395);
+        setBounds(100, 100, 668, 505);
         setLayout(null);
 
-        lblSnake = new JLabel("SNAKE");
-        lblSnake.setForeground(Color.BLACK);
-        lblSnake.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        lblSnake.setBounds(292, 27, 84, 36);
-        add(lblSnake);
-
-        menuLabel = new JLabel("MENU");
-        menuLabel.setForeground(Color.BLACK);
-        menuLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-        menuLabel.setBounds(296, 62, 75, 36);
-        add(menuLabel);
-
-        lblHiWelcome = new JLabel("Hi, welcome! Please choose your option");
-        lblHiWelcome.setForeground(Color.BLACK);
-        lblHiWelcome.setBounds(213, 100, 250, 16);
-        add(lblHiWelcome);
+        menuMessage = new JLabel("");
+        menuMessage.setForeground(Color.BLACK);
+        menuMessage.setHorizontalAlignment(SwingConstants.CENTER);
+        menuMessage.setBounds(53, 100, 566, 16);
+        add(menuMessage);
 
         btnJoinGame = new JButton("Join Game");
         btnJoinGame.setForeground(Color.BLACK);
@@ -79,6 +65,15 @@ public class Menu extends JPanel {
         btnLogOut.setActionCommand("Log Out");
         add(btnLogOut);
 
+        backGround = new JLabel("");
+        backGround.setIcon(new ImageIcon(Login.class.getResource("snakemenu.jpg")));
+        backGround.setBounds(0, 0, 668, 495);
+        add(backGround);
+
+    }
+
+    public void setMenuMessage(String menuMessage){
+        this.menuMessage.setText(menuMessage);
     }
 
     public void addACList(ActionListener ac){

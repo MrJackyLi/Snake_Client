@@ -53,11 +53,6 @@ public class DeleteGame extends JPanel {
         add(comboDeleteBox);
     }
 
-    public JButton getBtnDeleteGame() {
-        return btnDeleteGame;
-    }
-
-
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }

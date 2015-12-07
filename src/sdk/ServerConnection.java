@@ -151,7 +151,6 @@ public class ServerConnection {
     }
 
 
-
     public ArrayList<Game> getGameChallenge(int userId){
         String jsonOfUsers = this.get("games/pending/"+ userId);
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
@@ -188,7 +187,7 @@ public class ServerConnection {
     }
 
     public ArrayList <Game> getDeleteGame(int userid){
-        String jsonOfUsers = this.get("games/" + userid);
+        String jsonOfUsers = this.get("games/finished/" + userid);
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Game>>(){}.getType());
     }
 

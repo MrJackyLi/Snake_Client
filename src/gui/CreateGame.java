@@ -115,8 +115,6 @@ public class CreateGame extends JPanel {
         return txtFMovements.getText();
     }
 
-    public JButton getBtnCreateGame(){return btnCreateGame;}
-
     public void actionPerformedBack(ActionListener back) {
         btnBack.addActionListener(back);
     }
@@ -134,6 +132,11 @@ public class CreateGame extends JPanel {
 
         return (String) comboCreateBox.getSelectedItem();
         }
+
+    public void ClearTextFieldCreate(){
+        txtFGameName.setText("");
+        txtFMovements.setText("");
+    }
 
 
 }
