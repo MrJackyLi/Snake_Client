@@ -68,11 +68,9 @@ public class DeleteGame extends JPanel {
    public void setDeleteBox(ArrayList<Game> game){
         comboDeleteBox.removeAllItems();
         for (Game games : game) {
-            comboDeleteBox.addItem(games.getGameId());
-
+            comboDeleteBox.addItem(games.getName());
         }
     }
-
 
     public String getDeleteBox(){
         return (String) comboDeleteBox.getSelectedItem();

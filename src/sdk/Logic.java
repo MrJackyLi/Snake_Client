@@ -15,7 +15,6 @@ public class Logic {
     private Screen screen;
     private ServerConnection sc;
     private User currentUser;
-    private Game currentGame;
     private ArrayList<Game> gameChallenge;
     private ArrayList<Game> deleteGames;
 
@@ -104,14 +103,10 @@ public class Logic {
             String actCom = e.getActionCommand();
             if(actCom.equals("Join Game")) {
                 screen.show(Screen.JOINGAME);
-
                 gameChallenge = sc.getGameChallenge(currentUser.getId());
-
                 for (Game game : gameChallenge)
-
                     game.getGameId();
                     screen.getJoinGame().setGameChallenge(gameChallenge);
-
                 System.out.println(gameChallenge);
 
             }
@@ -123,7 +118,6 @@ public class Logic {
                 screen.show(Screen.DELETEGAME);
                 deleteGames = sc.getDeleteGame(currentUser.getId());
                 screen.getDeleteGame().setDeleteBox(deleteGames);
-
 
                 System.out.println(deleteGames);
 
@@ -196,23 +190,25 @@ public class Logic {
     private class DeleteActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-                Game game = new Game();
+            Game game = new Game();
+
 
             for (Game games : deleteGames) {
 
-                    if (games.getName().equals(screen.getDeleteGame().getDeleteBox())){
-                        game = games;
+                //if(screen.getDeleteGame().getDeleteBox().equals(games.getGameId())){
 
-                    }
+
+                if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
+                    game = games;
+
                 }
 
-               String message = sc.deleteGames(game.getGameId());
-                if(message.equals("Game was deleted")){
+                String message = sc.deleteGames(game.getGameId());
+                if (message.equals("Game was deleted")) {
                     screen.getDeleteGame().RemoveGame();
                 }
-
-                }
-
+            }
+        }
         }
 
     private class JoinActionListenerBack implements ActionListener{
