@@ -108,17 +108,25 @@ public class Screen extends JFrame {
     }
 
     /**
-     *
-     * @return
+     * A method that gets the CreateGame(JPanel)
+     * @return creategame
      */
     public CreateGame getCreateGame() {
         return creategame;
     }
 
+    /**
+     * A method that gets the DeleteGame(JPanel)
+     * @return deletegame
+     */
     public DeleteGame getDeleteGame() {
         return deletegame;
     }
 
+    /**
+     * A method that gets the Highscore(JPanel)
+     * @return highscore
+     */
     public Highscore getHighscore() {
         return highscore;
     }

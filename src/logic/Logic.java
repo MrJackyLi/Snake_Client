@@ -1,14 +1,20 @@
+package logic;
 
 /**
  * Created by Jacky on 10/11/15.
+ * The logic.class handles the client's/application's logic.
+ * It connects/interact between the GUI(frontend) and SDK(backend)
+ * The logic handles every single screen/JPanel's function, and a user's actions/inputs by the SDK.
+ * In return from the SDK it returns events and output to the user
+ * Contains an inner class of the JPanels
  */
 
-package logic;
-
+//All needed imports to the the class.
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+//Imported the gui.package and sdk.package as we interact with those packages.
 import gui.*;
 import sdk.Game;
 import sdk.Gamer;
