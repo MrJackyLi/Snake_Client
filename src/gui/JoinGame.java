@@ -38,13 +38,13 @@ public class JoinGame extends JPanel {
         setLayout(null);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setForeground(Color.cyan);
+        btnBack.setForeground(Color.black);
         btnBack.setBounds(406, 416, 174, 70);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
         btnJoinGame = new JButton("JOIN GAME");
-        btnJoinGame.setForeground(Color.CYAN);
+        btnJoinGame.setForeground(Color.black);
         btnJoinGame.setBounds(83, 416, 174, 70);
         add(btnJoinGame);
 

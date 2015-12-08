@@ -1,12 +1,14 @@
 package main;
 
-import sdk.Logic;
-import sdk.ServerConnection;
+/**
+ * Main-Class which is used to start the application/client
+ * Created by Jacky on 19/11/15.
+ */
 
-import java.security.Security;
+import logic.Logic;
 
 /**
- * Created by Jacky on 19/11/15.
+ * The application/client starts by the run() method in the Logic.class
  */
 public class Main {
     public static void main(String[] args) {

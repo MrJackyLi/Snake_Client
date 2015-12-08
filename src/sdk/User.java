@@ -1,10 +1,11 @@
 package sdk;
 
-import java.sql.Date;
-
 /**
  * Created by Jacky on 10/11/15.
  */
+
+import java.sql.Date;
+
 public class User {
 
     //creating variables

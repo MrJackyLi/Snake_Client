@@ -42,13 +42,13 @@ public class DeleteGame extends JPanel {
         add(lblChooseAGame);
 
         btnBack = new JButton("BACK TO MENU");
-        btnBack.setForeground(Color.CYAN);
+        btnBack.setForeground(Color.black);
         btnBack.setBounds(406, 416, 174, 70);
         btnBack.setActionCommand("BACK TO MENU");
         add(btnBack);
 
         btnDeleteGame = new JButton("DELETE GAME");
-        btnDeleteGame.setForeground(Color.CYAN);
+        btnDeleteGame.setForeground(Color.black);
         btnDeleteGame.setActionCommand("DELETE GAME");
         btnDeleteGame.setBounds(85, 416, 174, 70);
         add(btnDeleteGame);

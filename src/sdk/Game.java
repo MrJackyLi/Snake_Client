@@ -1,10 +1,14 @@
+package sdk;
+
 /**
  * Created by Jacky on 10/11/15.
  */
 
-package sdk;
+/**
+ * This class is from a template from GitHub from the prototype, otherwise it is found in the server as well.
+ * The class represent the objects and variables of a game, which are used to set the game.
+ */
 
-import javax.swing.*;
 import java.sql.Date;
 
 public class Game {

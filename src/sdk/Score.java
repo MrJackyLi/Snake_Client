@@ -1,5 +1,14 @@
 package sdk;
 
+/**
+ * Created by Jacky on 10/11/15.
+ *
+ * **/
+/**
+ * This class is from a template from GitHub from the prototype, otherwise it is found in the server as well.
+ * The class represent the objects and variables of Score, which are used to set the score of the game.
+ */
+
 
 // Creates class Score
 public class Score {
@@ -11,7 +20,6 @@ public class Score {
     private Game game;
     private int score;
 
-    //TODO: Kan slettes?! Bruges ikke i wrapper længere.
     // Creates constructor
     public Score(int id, Gamer user, Game game, Gamer opponent, int score) {
         this.id = id;

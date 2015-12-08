@@ -1,9 +1,13 @@
 package sdk;
 
-import javax.swing.*;
 
 /**
  * Created by Jacky on 29/11/15.
+ */
+
+/**
+ * This class is from a template from GitHub from the prototype, otherwise it is found in the server as well.
+ * The class represent the objects and variables of a gamer, which are used to set a gamer, in this case only the gamer's controls are set by the gamer.
  */
 public class Gamer extends User {
 

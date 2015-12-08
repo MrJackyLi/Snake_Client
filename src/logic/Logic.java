@@ -3,13 +3,17 @@
  * Created by Jacky on 10/11/15.
  */
 
-package sdk;
+package logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import gui.*;
+import sdk.Game;
+import sdk.Gamer;
+import sdk.ServerConnection;
+import sdk.User;
 
 public class Logic {
 
