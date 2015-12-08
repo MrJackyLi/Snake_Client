@@ -1,14 +1,23 @@
 package gui;
 
+/**
+ * Created by Jacky on 12/11/15.
+ * This class (Screen.class) contains all needed inputs and outputs for the class' GUI.
+ */
+
+/**
+ * Import all needed imports for this panel/class.
+ */
+
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
 
-
 /**
- * Created by Jacky on 12/11/15.
+ * Extends JFrame which contains alle JPanel's contentpane
  */
+
 public class Screen extends JFrame {
 
     public static final String LOGIN = "Login";
@@ -33,6 +42,8 @@ public class Screen extends JFrame {
     /**
      * Create the frame.
      */
+
+    //creates the frame for the application
     public Screen() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 668, 517);
@@ -62,40 +73,49 @@ public class Screen extends JFrame {
         c = (CardLayout) getContentPane().getLayout();
     }
 
+    /**
+     *This methods is used for showing the specific panel
+     * @param panel
+     * @return false
+     */
     public boolean show(String panel) {
         c.show(contentPane, panel);
         return false;
     }
 
+    /**
+     * A method that gets the Login(JPanel)
+     * @return login
+     */
     public Login getLogin() {
         return login;
     }
 
+    /**
+     * A method that gets the Menu(JPanel)
+     * @return menu
+     */
     public Menu getMenu() {
         return menu;
     }
 
+    /**
+     * A method that gets the JoinGame(JPanel)
+     * @return joingame
+     */
     public JoinGame getJoinGame() {
         return joingame;
     }
 
-    public JoinGame getBtnJoinGame() {
-        return joingame;
-    }
-
+    /**
+     *
+     * @return
+     */
     public CreateGame getCreateGame() {
         return creategame;
     }
 
-    public CreateGame getBtnCreateGame() {
-        return creategame;
-    }
-
     public DeleteGame getDeleteGame() {
-        return deletegame;
-    }
-
-    public DeleteGame getBtnDeleteGame() {
         return deletegame;
     }
 

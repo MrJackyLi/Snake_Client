@@ -1,5 +1,14 @@
 package gui;
 
+/**
+ * Created by Jacky on 16/11/15.
+ * This class (DeleteGame class) contains all needed inputs and outputs for the class' GUI.
+ */
+
+/**
+ * Import all needed imports for this panel/class.
+ */
+
 import sdk.Game;
 
 import javax.swing.*;
@@ -8,9 +17,6 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-/**
- * Created by Jacky on 16/11/15.
- */
 public class DeleteGame extends JPanel {
     private JLabel backGround;
     private JButton btnBack;
@@ -51,24 +57,18 @@ public class DeleteGame extends JPanel {
         comboDeleteBox.setBounds(211, 215, 246, 41);
         add(comboDeleteBox);
 
+        //background picture for this class' screen.
         backGround = new JLabel("");
         backGround.setIcon(new ImageIcon(Login.class.getResource("snakedelete.jpg")));
         backGround.setBounds(0, 0, 668, 495);
         add(backGround);
     }
 
-    public void actionPerformedBack(ActionListener back) {
-        btnBack.addActionListener(back);
-    }
-
-    public void addActionDelete(ActionListener delete) {
-        btnDeleteGame.addActionListener(delete);
-    }
-
-    public String getDeleteBox() {
-        return (String) comboDeleteBox.getSelectedItem();
-    }
-
+    /**
+     * An arraylist of games is being added to the combobox at the DeleteGame/panel. As an user can delete the game.
+     * An removeAllItems method is called/used to "refresh" the combobox, as it remove all the items/values and add the latest values according to the database.
+     * @param game
+     */
     public void setDeleteBox(ArrayList<Game> game) {
         comboDeleteBox.removeAllItems();
         for (Game games : game) {
@@ -76,8 +76,35 @@ public class DeleteGame extends JPanel {
         }
     }
 
+    /**
+     * A method of JCombobox that returns the selected item, from the combobox.
+     * @return (String) comboDeleteBox.getSelectedItem();
+     */
+    public String getDeleteBox() {
+        return (String) comboDeleteBox.getSelectedItem();
+    }
+
+    /**
+     * A method of JCombobox that removes the selected item from the user.
+     */
     public void RemoveGame() {
         comboDeleteBox.removeItemAt(comboDeleteBox.getSelectedIndex());
+    }
+
+    /**
+     * A method that adds an actionlistener for the back-button
+     * @param back
+     */
+    public void actionPerformedBack(ActionListener back) {
+        btnBack.addActionListener(back);
+    }
+
+    /**
+     * A method that adds an actionlistener for the back-button
+     * @param delete
+     */
+    public void addActionDelete(ActionListener delete) {
+        btnDeleteGame.addActionListener(delete);
     }
 
 }

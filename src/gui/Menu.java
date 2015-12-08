@@ -1,13 +1,18 @@
 package gui;
 
+/**
+ * Created by Jacky on 12/11/15.
+ * This class (Menu.class) contains all needed inputs and outputs for the class' GUI.
+ */
+
+/**
+ * Import all needed imports for this panel/class.
+ */
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-
-/**
- * Created by Jacky on 12/11/15.
- */
 
 public class Menu extends JPanel {
 
@@ -40,7 +45,6 @@ public class Menu extends JPanel {
         add(btnJoinGame);
 
         btnCreateGame = new JButton("Create Game");
-        btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         btnCreateGame.setForeground(Color.BLACK);
         btnCreateGame.setBounds(96, 196, 174, 70);
         btnCreateGame.setActionCommand("Create Game");
@@ -59,24 +63,31 @@ public class Menu extends JPanel {
         add(btnGetHighscore);
 
         btnLogOut = new JButton("Log Out");
-        btnLogOut.setBackground(Color.WHITE);
-        btnLogOut.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         btnLogOut.setForeground(Color.BLACK);
         btnLogOut.setBounds(247, 383, 174, 70);
         btnLogOut.setActionCommand("Log Out");
         add(btnLogOut);
 
+        //background picture for this class' screen.
         backGround = new JLabel("");
         backGround.setIcon(new ImageIcon(Login.class.getResource("snakemenu.jpg")));
         backGround.setBounds(0, 0, 668, 495);
         add(backGround);
-
     }
 
+    /**
+     * A method that sets the label, more in(Logic.class)
+     * @param menuMessage
+     */
     public void setMenuMessage(String menuMessage) {
+
         this.menuMessage.setText(menuMessage);
     }
 
+    /**
+     * Adds actionslistener to the several buttons to the different screen
+     * @param ac
+     */
     public void addACList(ActionListener ac) {
         btnJoinGame.addActionListener(ac);
         btnCreateGame.addActionListener(ac);

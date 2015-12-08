@@ -1,15 +1,20 @@
 package gui;
 
+/**
+ * Created by Jacky on 16/11/15.
+ * This class (CreateGame class) contains all needed inputs and outputs for the class' GUI.
+ */
+
+/**
+ * Import all needed imports for this panel/class.
+ */
+
 import sdk.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-/**
- * Created by Jacky on 16/11/15.
- */
 
 public class CreateGame extends JPanel {
     private JButton btnBack;
@@ -84,29 +89,34 @@ public class CreateGame extends JPanel {
         comboCreateBox.setBounds(375, 160, 246, 41);
         add(comboCreateBox);
 
+        //background picture for this class' screen.
         backGround = new JLabel("");
         backGround.setIcon(new ImageIcon(Login.class.getResource("snakecreate.jpg")));
         backGround.setBounds(0, 0, 668, 495);
         add(backGround);
     }
 
-
+    /**
+     * A method to get the name of the game, which is insert by the user in the textfield, which are being converted to a String
+     * @return txtFGameName.getText()
+     */
     public String getTxtFGameName() {
         return txtFGameName.getText();
     }
 
+    /**
+     * A method to get the user's movements/actions of the game, which is insert by the user in the textfield, which are being converted to a String
+     * @return txtFMovements.getText()
+     */
     public String getTxtFMovements() {
         return txtFMovements.getText();
     }
 
-    public void actionPerformedBack(ActionListener back) {
-        btnBack.addActionListener(back);
-    }
-
-    public void addActionCreate(ActionListener create) {
-        btnCreateGame.addActionListener(create);
-    }
-
+    /**
+     * An arraylist of users is being added to the combobox at the CreateGame/panel. As an user can choose an opponnent.
+     * An removeAllItems method is called/used to "refresh" the combobox, as it remove all the items/values and add the latest values according to the database.
+     * @param users
+     */
     public void addUser(ArrayList<User> users) {
         comboCreateBox.removeAllItems();
         for (User usr : users) {
@@ -114,14 +124,37 @@ public class CreateGame extends JPanel {
         }
     }
 
+    /**
+     * A method that returns the selected item, from the combobox.
+     * @return (String) comboCreateBox.getSelectedItem()
+     */
     public String getUser() {
 
         return (String) comboCreateBox.getSelectedItem();
     }
 
+    /**
+     * A method that is clearing all the textfield in this CreateGame.class
+     */
     public void ClearTextFieldCreate() {
         txtFGameName.setText("");
         txtFMovements.setText("");
+    }
+
+    /**
+     * A method that adds an actionlistener for the back-button
+     * @param back
+     */
+    public void actionPerformedBack(ActionListener back) {
+        btnBack.addActionListener(back);
+    }
+
+    /**
+     * A method that adds an actionlisten for the create-button
+     * @param create
+     */
+    public void addActionCreate(ActionListener create) {
+        btnCreateGame.addActionListener(create);
     }
 
 }

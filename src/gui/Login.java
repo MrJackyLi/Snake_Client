@@ -1,13 +1,19 @@
 package gui;
 
+/**
+ * Created by Jacky on 12/11/15.
+ * This class (JoinGame class) contains all needed inputs and outputs for the class' GUI.
+ */
+
+/**
+ * Import all needed imports for this panel/class.
+ */
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Jacky on 12/11/15.
- */
 public class Login extends JPanel {
     private JTextField txtUsername;
     private JPasswordField txtTypePassword;
@@ -66,31 +72,52 @@ public class Login extends JPanel {
         btnLogin.setActionCommand("Login");
         add(btnLogin);
 
+        //background picture for this class' screen.
         backGround = new JLabel("");
         backGround.setIcon(new ImageIcon(Login.class.getResource("snake.jpg")));
         backGround.setBounds(0, 0, 668, 495);
         add(backGround);
     }
 
+    /**
+     * A method to get user's the username, which is insert by the user in the textfield, which are being converted to a String
+     * @return txtUsername.getText()
+     */
     public String getTxtUsername() {
         return txtUsername.getText();
     }
 
+    /**
+     * A method to get user's the password, which is insert by the user in the textfield, which are being converted to a String
+     * @return String.valueOf(txtUsername.getText()
+     */
     public String getTxtTypePassword() {
 
         return String.valueOf(txtTypePassword.getPassword());
     }
 
+    /**
+     * A method that sets the label, more in(Logic.class)
+     * @param errorMessage
+     */
     public void setErrorMessage(String errorMessage) {
         this.errorMessage.setText(errorMessage);
     }
 
-    public void addActionListener(ActionListener l) {
-        btnLogin.addActionListener(l);
-    }
-
+    /**
+     * A method that is clearing all the textfield in this Login.class
+     */
     public void ClearTextFieldLogin() {
         txtTypePassword.setText("");
         txtUsername.setText("");
     }
+
+    /**
+     * A method which adds an actionslistener for the login-button.
+     * @param l
+     */
+    public void addActionListener(ActionListener l) {
+        btnLogin.addActionListener(l);
+    }
+
 }

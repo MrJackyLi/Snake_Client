@@ -34,15 +34,15 @@ public class Logic {
                 new MenuActionListener());
         screen.getJoinGame().actionPerformedBack(
                 new JoinActionListenerBack());
-        screen.getBtnJoinGame().actionListenerJoin(
+        screen.getJoinGame().actionListenerJoin(
                 new JoinActionListener());
         screen.getCreateGame().actionPerformedBack(
                 new CreateActionListenerBack());
-        screen.getBtnCreateGame().addActionCreate(
+        screen.getCreateGame().addActionCreate(
                 new CreateActionListener());
         screen.getDeleteGame().actionPerformedBack(
                 new DeleteActionListenerBack());
-        screen.getBtnDeleteGame().addActionDelete(
+        screen.getDeleteGame().addActionDelete(
                 new DeleteActionListener());
         screen.getHighscore().actionPerformedBack(
                 new HighscoreActionListenerBack());
@@ -146,7 +146,7 @@ public class Logic {
 
                 }
                 screen.show(Screen.MENU);
-                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().equals("W"));
+                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().getId());
 
             }
         }
@@ -179,8 +179,6 @@ public class Logic {
                 screen.show(Screen.MENU);
                 screen.getMenu().setMenuMessage("The game " + screen.getCreateGame().getTxtFGameName() + " is created ");
             }
-
-            // screen.setContentPane(Screen.MENU);
         }
     }
 
