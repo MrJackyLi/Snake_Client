@@ -86,6 +86,8 @@ public class Logic {
     /**
      * An inner class that is called by the run() method and
      * contains the actionlistener when it is called.
+     * In this class we will find verify the user, by identifying the user's inputs, by the login-method in the
+     * serverconncetion.class by a "PUT" - request - where the path for it will be found.
      */
     private class LoginActionListener implements ActionListener {
         /**
@@ -134,6 +136,8 @@ public class Logic {
     /**
      * An inner class that is called by the run() method and
      * contains the actionlistener when it is called.
+     * In this class we will find what single screen's/Panel's values/ressources, through the method called in the
+     * serverConnections.class, where the givin path is.
      */
 
     private class MenuActionListener implements ActionListener {
@@ -198,6 +202,11 @@ public class Logic {
     /**
      * An inner class that is called by the run() method and
      * contains the actionlistener when it is called.
+     * In this class a user can join a existing game in the database.
+     * This is done by get the values, which is set by the user, which we have to put to a method in the serverConncetion.class.
+     * Where the method can be found with its "PUT", "GET"-request to the specific path.
+     * "PUT" as we have to refresh the server with new values
+     * "GET" as we have to get the arraylist of games and a list of user
      */
     private class JoinActionListener implements ActionListener {
 
@@ -209,81 +218,157 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            //creating the variable, which will be initialized inside the loop
+            //otherwise it will have to create a new object every single time
+            //if the variable was created in the loop, and create the object in the loop, we could make return in the loop
+
             Game gameStart = null;
 
+            //for-statement that makes it possible to repeat the loop until the condition is satisfied.
+            //An if-statement within the for-loop to test the condition
+            //gameChallenge is the arraylist of the game, which hold these variables,
+            //as we want to "receive" our challenge, we have called a method(getChallenge) in the JoinGame,
+            //that makes it possible for us to see the challanges, as you choose a game/challenge, we have
+            //set the value for a game, "gameStart=game"
             for (Game game : gameChallenge) {
                 if (screen.getJoinGame().getChallenge().equals(game.getName())) {
                     gameStart = game;
                 }
             }
+            //as we get the game's opponent and game, the user can set his/her control in the textfield
             gameStart.getOpponent().setControls(screen.getJoinGame().getTxtJoinMove());
 
+            //as we receive these values, we then this to put these values into a "PUT-request" through the server
+            //in the serverconnection.class
             sc.joinGame(gameStart);
             sc.gameStart(gameStart);
+            //for-statement that makes it possible to repeat the loop until the condition is satisfied.
+            //An if-statement within the for-loop to test the condition
+            //As we "PUT-request" from the server, the server have already calculated the winner of the game
             for (User usr : sc.getUserData()) {
                 if (usr.getId() == gameStart.getWinner().getId()) {
                     gameStart.getWinner().setUsername(usr.getUsername());
-
                 }
+                // As a game is joined, it will bring the user back to the menu screen.
                 screen.show(Screen.MENU);
-                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().getId());
+                // At the same time, when the user i referred back to the menu screen, the label menuMessage will be set
+                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().getUsername());
 
             }
         }
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user can create a new game to the database.
+     * This is done by get the values, which is set by the user, which we have a put method in the serverConncetion.class.
+     * Where the method can be found with its "POST", "GET"-request to the specific path.
+     * "POST" as we have to set some new values(the controls,mapsize, host, opponent, game name)
+     * "GET" as we have to get the arraylist of games and a list of user
+     */
     private class CreateActionListener implements ActionListener {
+
+        /**
+         * As this actionlistener gets called by the run method, it will then execute for this
+         * JPanel through the screen(in the run() method)
+         * @param e the object of the action event
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
+            //Initializing variables in the class
             Gamer host = new Gamer();
             host.setId(currentUser.getId());
+            //the controls is being set, by the inputs from the user in the JTextfield.
             host.setControls(screen.getCreateGame().getTxtFMovements());
 
             Game game = new Game();
             Gamer opponent = new Gamer();
             game.setHost(host);
             game.setOpponent(opponent);
+            //mapsize set
             game.setMapSize(20);
+            //the game of the name is set by the user, with its input in the JTextfield.
             game.setName(screen.getCreateGame().getTxtFGameName());
 
 
+            //for-statement that makes it possible to repeat the loop until the condition is satisfied.
+            //An if-statement within the for-loop to test the condition
+            //As we want to create a game, we want to set the user's opponent by the user choose in the givin arraylist,
+            // it displays the users in the database, through the serverconnection.class.
+            //As a "GET-request" to the givin path.
             for (User usr : sc.getUserData()) {
                 if (usr.getUsername().equals(screen.getCreateGame().getUser())) {
                     opponent.setId(usr.getId());
                 }
             }
+            //as all the values are set from the user, we then add the values to the database though the server,
+            //with a "POST"-request.
             sc.createGame(game);
 
+            //as we create a game, the user will return to the menu screen.
+            //at the same time, a them menumessage-label is set.
             if (currentUser != null) {
-
+                // As a game is create, it will bring the user back to the menu screen.
                 screen.show(Screen.MENU);
+                // At the same time, when the user i referred back to the menu screen, the label menuMessage will be set
                 screen.getMenu().setMenuMessage("The game " + screen.getCreateGame().getTxtFGameName() + " is created ");
             }
         }
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user can delete a game to the database.
+     * This is done by get the values/game, which is chose by the user, which we have to delete, with a givin method
+     * in the serverConncetion.class. In this method, we DELETE-request to the server, with a givin path.
+     * "DELETE" as we have to delete a value/resource from the database.
+     */
     private class DeleteActionListener implements ActionListener {
+        /**
+         * As this actionlistener gets called by the run method, it will then execute for this
+         * JPanel through the screen(in the run() method)
+         * @param e the object of the action event
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
+            //Initializing variables in the class
             Game game = new Game();
 
+
+            //for-statement that makes it possible to repeat the loop until the condition is satisfied.
+            //An if-statement within the for-loop to test the condition
+            //As we want to delete a game, we want see the all games in an arraylist, the user choose in the givin arraylist,
+            //it displays the games in the database, through the serverconnection.class.
+            //As a "DELETE-request" to the givin path.
             for (Game games : deleteGames) {
                 screen.getDeleteGame().getDeleteBox();
                 if (games.getName().equals(screen.getDeleteGame().getDeleteBox())) {
                     game = games;
-
                 }
             }
+            //An if-statement within the for-loop to test the condition
+            //Our String we want to send to the serverconnection's delete-method(See delete method in serverConnection)
             String message = sc.deleteGames(game.getGameId());
             if (message.equals("Game was deleted")) {
+                // as a game gets deleted, we update the arraylist, by removing the removed resource/value in the
+                //arraylist
                 screen.getDeleteGame().RemoveGame();
+                // As a game is deleted, it will bring the user back to the menu screen.
                 screen.show(Screen.MENU);
+                // At the same time, when the user i referred back to the menu screen, the label menuMessage will be set
                 screen.getMenu().setMenuMessage("You have deleted the game: " + game.getName());
             }
 
         }
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user press the "back to menu" from the JoinGame.class  by its actionlistener, the user will be can delete a game to the database.
+     */
     private class JoinActionListenerBack implements ActionListener {
 
         public void actionPerformed(ActionEvent back) {
@@ -292,6 +377,11 @@ public class Logic {
 
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user press the "back to menu" from the CreateGame.class  by its actionlistener, the user will be can delete a game to the database.
+     */
     private class CreateActionListenerBack implements ActionListener {
 
         public void actionPerformed(ActionEvent back) {
@@ -299,6 +389,11 @@ public class Logic {
         }
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user press the "back to menu" from the DeleteGame.class  by its actionlistener, the user will be can delete a game to the database.
+     */
     private class DeleteActionListenerBack implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -306,6 +401,11 @@ public class Logic {
         }
     }
 
+    /**
+     * An inner class that is called by the run() method and
+     * contains the actionlistener when it is called.
+     * In this class a user press the "back to menu" from the Highscore.class  by its actionlistener, the user will be can delete a game to the database.
+     */
     private class HighscoreActionListenerBack implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
