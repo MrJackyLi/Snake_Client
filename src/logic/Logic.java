@@ -104,7 +104,7 @@ public class Logic {
             currentUser.setUsername(screen.getLogin().getTxtUsername());
             currentUser.setPassword(screen.getLogin().getTxtTypePassword());
 
-            //Our String we want to send to the serverconnection's login-method(See login method in serverConnection)
+            //Our String we want to send to the serverconnection's login-resource(See the login request in serverConnection)
             String message = sc.login(currentUser);
             //if-else statement; that tests conditions
             //As we have the isEmpty method, we checks if the JTextfields are filled.
@@ -119,7 +119,8 @@ public class Logic {
                 //comparison of it according to the arraylist/database, through the path in the serverconnection.
                 //If correct then welcomes the user
                 for (User usr : sc.getUserData()) {
-                    if (currentUser.equals(usr.getUsername()) && currentUser.equals(usr.getPassword())) {
+
+                    if (currentUser.getUsername().equals(usr.getUsername()) && currentUser.getPassword().equals(usr.getPassword())) {
                         currentUser = usr;
                     } else if (message.equals("Login successful")) {
                         screen.show(Screen.MENU);
@@ -167,6 +168,7 @@ public class Logic {
             else if (actCom.equals("Create Game")) {
                 screen.show(Screen.CREATEGAME);
                 //A method which is called in the CreateGame.class to clear the Textfield in class.
+                sc.getUserData();
                 screen.getCreateGame().ClearTextFieldCreate();
                 //makes sure our screen update/refresh the arraylist of users.
                 screen.getCreateGame().addUser(sc.getUserData());
@@ -252,7 +254,7 @@ public class Logic {
                 // As a game is joined, it will bring the user back to the menu screen.
                 screen.show(Screen.MENU);
                 // At the same time, when the user i referred back to the menu screen, the label menuMessage will be set
-                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().getUsername());
+                screen.getMenu().setMenuMessage("You have joined a game and you: " + gameStart.getWinner().getId());
 
             }
         }
@@ -281,6 +283,7 @@ public class Logic {
             host.setId(currentUser.getId());
             //the controls is being set, by the inputs from the user in the JTextfield.
             host.setControls(screen.getCreateGame().getTxtFMovements());
+            System.out.println(host.getId());
 
             Game game = new Game();
             Gamer opponent = new Gamer();
@@ -290,7 +293,6 @@ public class Logic {
             game.setMapSize(20);
             //the game of the name is set by the user, with its input in the JTextfield.
             game.setName(screen.getCreateGame().getTxtFGameName());
-
 
             //for-statement that makes it possible to repeat the loop until the condition is satisfied.
             //An if-statement within the for-loop to test the condition
@@ -336,7 +338,6 @@ public class Logic {
             //Initializing variables in the class
             Game game = new Game();
 
-
             //for-statement that makes it possible to repeat the loop until the condition is satisfied.
             //An if-statement within the for-loop to test the condition
             //As we want to delete a game, we want see the all games in an arraylist, the user choose in the givin arraylist,
@@ -349,7 +350,7 @@ public class Logic {
                 }
             }
             //An if-statement within the for-loop to test the condition
-            //Our String we want to send to the serverconnection's delete-method(See delete method in serverConnection)
+            //Our String we want to send to the serverconnection's delete-resource(See delete resource in serverConnection)
             String message = sc.deleteGames(game.getGameId());
             if (message.equals("Game was deleted")) {
                 // as a game gets deleted, we update the arraylist, by removing the removed resource/value in the

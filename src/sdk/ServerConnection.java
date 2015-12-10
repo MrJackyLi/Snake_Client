@@ -75,7 +75,7 @@ public class ServerConnection {
     }
 
     /**
-     *The method is for, to "get" objects from the server, which is send by a request from this client, as it need specific values from the database through the server.
+     *The method is for, to "get" objects/data from the server, which is send by a request from this client, as it need specific values from the database through the server.
      * @param path We can by the path, choose the specific path in the server's API, which identifies the needed resource.
      * @return output
      */
@@ -90,6 +90,7 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
 
         return output;
+
 
     }
 
@@ -248,8 +249,8 @@ public class ServerConnection {
      * @return
      */
     public ArrayList<Score> getHighscores() {
-        String jsonOfUsers = this.get("highscores");
-        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<Score>>() {
+        String jsonOfHighScores = this.get("highscores");
+        return new Gson().fromJson(jsonOfHighScores, new TypeToken<ArrayList<Score>>() {
         }.getType());
     }
 
